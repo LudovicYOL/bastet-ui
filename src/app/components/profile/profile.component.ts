@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthenticationService, UserDetails } from '../../services/authentication.service';
 
 @Component({

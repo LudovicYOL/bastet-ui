@@ -8,6 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
 import { MaterialModule } from './core/material.module';
 
 import { AuthGuardService } from './services/auth-guard.service';
@@ -27,7 +33,6 @@ import { AuthenticationService } from './services/authentication.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { AnnuaireComponent } from './components/annuaire/annuaire.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import { RequestOptions } from '@angular/http';
 
 const routes: Routes = [
   {
@@ -68,7 +73,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    FontAwesomeModule
   ],
   providers: [
     IssueService,
@@ -84,4 +90,8 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    library.add(fas, far, fab);
+  }
+}
