@@ -1,0 +1,45 @@
+
+@import '../node_modules/@angular/material/theming';
+
+@include mat-core();
+
+$mat-bastet: (
+  50 : #edf4f0,
+  100 : #d3e5da,
+  200 : #b6d3c2,
+  300 : #99c1aa,
+  400 : #83b497,
+  500 : #6da785,
+  600 : #659f7d,
+  700 : #5a9672,
+  800 : #508c68,
+  900 : #3e7c55,
+  A100 : #d0ffe1,
+  A200 : #9dffc1,
+  A400 : #6affa1,
+  A700 : #51ff90,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$custom-theme-primary: mat-palette($mat-bastet);
+$custom-theme-accent: mat-palette($mat-orange, A200, A100, A400);
+$custom-theme-warn: mat-palette($mat-red);
+
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+@include angular-material-theme($custom-theme);
