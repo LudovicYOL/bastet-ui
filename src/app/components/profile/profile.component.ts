@@ -10,7 +10,7 @@ export class ProfileComponent implements OnInit {
 
   details: UserDetails;
 
-  constructor(private auth: AuthenticationService) {}
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
     this.auth.profile().subscribe(user => {
@@ -19,5 +19,4 @@ export class ProfileComponent implements OnInit {
       console.error(err);
     });
   }
-
 }

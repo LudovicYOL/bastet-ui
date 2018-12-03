@@ -23,20 +23,17 @@ export class IssuesListComponent implements OnInit {
   }
 
   fetchIssues() {
-    console.log("test");
     this.issueService
-    .getIssues()
-    .subscribe((data: Issue[]) => {
-      this.issues = data;
-      console.log('Data requested ... ');
-      console.log(this.issues);
-    });
+      .getIssues()
+      .subscribe((data: Issue[]) => {
+        this.issues = data;
+      });
   }
 
   editIssue(id) {
     this.router.navigate([`/issues/edit/${id}`]);
   }
-  
+
   deleteIssue(id) {
     this.issueService.deleteIssue(id).subscribe(() => {
       this.fetchIssues();

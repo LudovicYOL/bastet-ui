@@ -1,27 +1,26 @@
-
 <mat-card class="register-card">
-    <img mat-card-image src="../../../assets/images/bastet.png" alt="Logo de l'application Bastet">
-    <mat-card-header>
-        <mat-card-title>Créer un compte</mat-card-title>
-    </mat-card-header>
-    <form (submit)="register()">
-      <mat-card-content>
-          <mat-form-field>
-              <input matInput placeholder="Nom" required name="name" [(ngModel)]="credentials.name">
-            </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Adresse mail" [formControl]="email" required name="email" [(ngModel)]="credentials.email">
-          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput placeholder="Mot de passe" [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="credentials.password">
-          <mat-icon class="pointer" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button routerLink="/login">Retour</button>
-        <div fxFlex></div>
-        <button type="submit" mat-raised-button color="primary">Créer un compte</button>
-      </mat-card-actions>
-    </form>
-  </mat-card>
+  <img mat-card-image src="../../../assets/images/bastet.png" alt="Logo de l'application Bastet">
+  <mat-card-header>
+    <mat-card-title>Créer un compte</mat-card-title>
+  </mat-card-header>
+  <form (submit)="register()">
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput placeholder="Nom" required name="name" [(ngModel)]="credentials.name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Adresse mail" [formControl]="email" required name="email" [(ngModel)]="credentials.email">
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Mot de passe" [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="credentials.password">
+        <mat-icon class="pointer" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button routerLink="/login">Retour</button>
+      <div fxFlex></div>
+      <button type="submit" mat-raised-button color="primary">Créer un compte</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

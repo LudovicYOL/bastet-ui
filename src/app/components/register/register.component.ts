@@ -19,15 +19,15 @@ export class RegisterComponent implements OnInit {
     password: ''
   };
 
-  constructor(private auth: AuthenticationService, private router: Router) {}
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
   }
-  
+
   getErrorMessage() {
     return this.email.hasError('required') ? 'Vous devez entrer une adresse mail' :
-        this.email.hasError('email') ? 'Adresse mail invalide' :
-            '';
+      this.email.hasError('email') ? 'Adresse mail invalide' :
+        '';
   }
 
   register() {

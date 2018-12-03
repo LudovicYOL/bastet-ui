@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService, TokenPayload } from '../../services/authentication.service';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,15 +18,15 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private auth: AuthenticationService, private router: Router) {}
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
   }
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'Vous devez entrer une adresse mail' :
-        this.email.hasError('email') ? 'Adresse mail invalide' :
-            '';
+      this.email.hasError('email') ? 'Adresse mail invalide' :
+        '';
   }
 
   login() {

@@ -8,6 +8,5 @@ import { AuthenticationService } from './services/authentication.service';
 })
 export class AppComponent {
   title = 'Bastet';
-  constructor(public auth: AuthenticationService) {}
+  constructor(public auth: AuthenticationService) { }
 }
-

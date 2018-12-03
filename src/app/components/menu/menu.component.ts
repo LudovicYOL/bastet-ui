@@ -36,9 +36,7 @@ export class MenuComponent implements OnInit {
 
   }
 
-  logout(){
-    console.log("logout");
+  logout() {
     this.auth.logout();
   }
-
 }

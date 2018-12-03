@@ -27,7 +27,7 @@ export class IssuesCreateComponent implements OnInit {
       this.router.navigate(['/issues/list']);
     });
   }
-  
+
   ngOnInit() {
   }
 }

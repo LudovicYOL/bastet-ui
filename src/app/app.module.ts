@@ -25,16 +25,17 @@ import { MenuComponent } from './components/menu/menu.component';
 
 const routes: Routes = [
   {
-    path: '', component: MenuComponent,  canActivate: [AuthGuardService], children: [
-      { path: 'accueil', component: HomeComponent,  canActivate: [AuthGuardService] },
+    path: '', component: MenuComponent, canActivate: [AuthGuardService], children: [
+      { path: 'accueil', component: HomeComponent, canActivate: [AuthGuardService] },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
       { path: 'issues/create', component: IssuesCreateComponent, canActivate: [AuthGuardService] },
       { path: 'issues/edit/:id', component: IssuesEditComponent, canActivate: [AuthGuardService] },
       { path: 'issues/list', component: IssuesListComponent, canActivate: [AuthGuardService] },
-      { path: 'issues', redirectTo: 'issues/list', pathMatch: 'full',  canActivate: [AuthGuardService] }
-    ]},
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent }
+      { path: 'issues', redirectTo: 'issues/list', pathMatch: 'full', canActivate: [AuthGuardService] }
+    ]
+  },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
@@ -61,9 +62,7 @@ const routes: Routes = [
   ],
   providers: [IssueService, AuthGuardService, AuthenticationService],
   bootstrap: [AppComponent],
-  exports : [RouterModule]
+  exports: [RouterModule]
 })
 
-export class AppModule {
-
-}
+export class AppModule { }

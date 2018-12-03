@@ -15,7 +15,8 @@ export class IssuesEditComponent implements OnInit {
   id: String;
   issue: any = {};
   updateForm: FormGroup;
-  constructor(private issueService: IssueService, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) { 
+  constructor(private issueService: IssueService, private router: Router, private route: ActivatedRoute,
+    private snackBar: MatSnackBar, private fb: FormBuilder) {
     this.createForm();
   }
 
@@ -35,14 +36,14 @@ export class IssuesEditComponent implements OnInit {
 
   createForm() {
     this.updateForm = this.fb.group({
-      title: ['', Validators.required ],
+      title: ['', Validators.required],
       responsible: '',
       description: '',
       severity: '',
       status: ''
     });
   }
-  
+
   updateIssue(title, responsible, description, severity, status) {
     this.issueService.updateIssue(this.id, title, responsible, description, severity, status).subscribe(() => {
       this.snackBar.open('Issue updated successfully', 'OK', {

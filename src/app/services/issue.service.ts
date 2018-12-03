@@ -39,7 +39,7 @@ export class IssueService {
     };
     return this.http.post(`${environment.api}/issues/update/${id}`, issue);
   }
-  
+
   deleteIssue(id) {
     return this.http.get(`${environment.api}/issues/delete/${id}`);
   }
