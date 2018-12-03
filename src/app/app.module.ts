@@ -10,8 +10,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './core/material.module';
 
-import { IssueService } from './services/issue.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './services/token.interceptor';
+
+import { IssueService } from './services/issue.service';
 
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
@@ -24,6 +27,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { AnnuaireComponent } from './components/annuaire/annuaire.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { RequestOptions } from '@angular/http';
 
 const routes: Routes = [
   {
@@ -66,7 +70,16 @@ const routes: Routes = [
     FormsModule,
     MaterialModule
   ],
-  providers: [IssueService, AuthGuardService, AuthenticationService],
+  providers: [
+    IssueService,
+    AuthGuardService,
+    AuthenticationService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })

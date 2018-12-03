@@ -23,6 +23,8 @@ export interface TokenPayload {
   name?: string;
 }
 
+export const TOKEN_NAME = 'mean-token';
+
 @Injectable()
 export class AuthenticationService {
   private token: string;
@@ -32,20 +34,20 @@ export class AuthenticationService {
   }
 
   private saveToken(token: string): void {
-    localStorage.setItem('mean-token', token);
+    localStorage.setItem(TOKEN_NAME, token);
     this.token = token;
   }
 
-  private getToken(): string {
+  public getToken(): string {
     if (!this.token) {
-      this.token = localStorage.getItem('mean-token');
+      this.token = localStorage.getItem(TOKEN_NAME);
     }
     return this.token;
   }
 
   public logout(): void {
     this.token = '';
-    window.localStorage.removeItem('mean-token');
+    window.localStorage.removeItem(TOKEN_NAME);
     this.router.navigateByUrl('/login');
   }
 
