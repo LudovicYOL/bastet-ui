@@ -2,13 +2,17 @@
   <mat-sidenav #sidenav [(mode)]="over" [(opened)]="opened" class="bottom-to-top">
     <img src="./assets/images/bastet.png" width="100%">
     <div class="mt-3">
-      <mat-nav-list>
-        <mat-list-item routerLink="/annuaire">
+      <mat-nav-list class="sidenav-links">
+        <mat-list-item (click)="sidenav.toggle()" routerLink="/home">
+          <button mat-icon-button class="mr-3">
+            <mat-icon>home</mat-icon>
+            <a> Accueil </a>
+          </button>
+        </mat-list-item>
+        <mat-list-item (click)="sidenav.toggle()" routerLink="/annuaire">
           <button mat-icon-button class="mr-3">
             <mat-icon>supervisor_account</mat-icon>
-            <a style="font-size:15px;">
-              Annuaire
-            </a>
+            <a> Annuaire </a>
           </button>
         </mat-list-item>
       </mat-nav-list>
@@ -22,13 +26,13 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <mat-nav-list class="ml-0" dense>
-            <mat-list-item routerLink="/accounts">
+            <mat-list-item (click)="sidenav.toggle()" routerLink="/accounts">
               <button mat-icon-button class="mr-3">
                 <mat-icon>supervised_user_circle</mat-icon>
               </button>
               <a href="#">Comptes</a>
             </mat-list-item>
-            <mat-list-item routerLink="/issues">
+            <mat-list-item (click)="sidenav.toggle()" routerLink="/issues">
               <button mat-icon-button class="mr-3">
                 <mat-icon>bug_report</mat-icon>
               </button>
@@ -58,11 +62,11 @@
       <mat-menu #menu="matMenu" overlapTrigger="false">
         <button mat-menu-item routerLink="/profile">
           <mat-icon>account_circle</mat-icon>
-          <span>My Account</span>
+          <span>Mon profil</span>
         </button>
         <button mat-menu-item routerLink="/settings">
           <mat-icon>settings</mat-icon>
-          <span>Settings</span>
+          <span>Paramètres</span>
         </button>
       </mat-menu>
       <button mat-button (click)="logout()">

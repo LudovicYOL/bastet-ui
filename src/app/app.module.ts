@@ -22,16 +22,20 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthenticationService } from './services/authentication.service';
 import { MenuComponent } from './components/menu/menu.component';
+import { AnnuaireComponent } from './components/annuaire/annuaire.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   {
     path: '', component: MenuComponent, canActivate: [AuthGuardService], children: [
-      { path: 'accueil', component: HomeComponent, canActivate: [AuthGuardService] },
+      { path: 'home', component: HomeComponent, canActivate: [AuthGuardService] },
+      { path: 'annuaire', component: AnnuaireComponent, canActivate: [AuthGuardService] },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
       { path: 'issues/create', component: IssuesCreateComponent, canActivate: [AuthGuardService] },
       { path: 'issues/edit/:id', component: IssuesEditComponent, canActivate: [AuthGuardService] },
       { path: 'issues/list', component: IssuesListComponent, canActivate: [AuthGuardService] },
-      { path: 'issues', redirectTo: 'issues/list', pathMatch: 'full', canActivate: [AuthGuardService] }
+      { path: 'issues', redirectTo: 'issues/list', pathMatch: 'full', canActivate: [AuthGuardService] },
+      { path: 'settings', component: SettingsComponent, canActivate: [AuthGuardService] }
     ]
   },
   { path: 'login', component: LoginComponent },
@@ -48,7 +52,9 @@ const routes: Routes = [
     LoginComponent,
     ProfileComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    AnnuaireComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,6 @@ import { ObservableMedia, MediaChange } from '@angular/flex-layout';
 import { AuthenticationService, TokenPayload } from '../../services/authentication.service';
 import { Subscription } from 'rxjs';
 
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
