@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -33,6 +33,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { AnnuaireComponent } from './components/annuaire/annuaire.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -48,7 +49,9 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent, data: {animation: 'RegisterPage'} },
+  { path: '**', component: NotFoundComponent }
+
 ];
 
 @NgModule({
@@ -63,7 +66,8 @@ const routes: Routes = [
     HomeComponent,
     MenuComponent,
     AnnuaireComponent,
-    SettingsComponent
+    SettingsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
