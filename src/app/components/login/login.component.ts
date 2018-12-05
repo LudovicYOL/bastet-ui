@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService, TokenPayload } from '../../services/authentication.service';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private auth: AuthenticationService, private router: Router) { }
+  constructor(private auth: AuthenticationService, private router: Router, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -34,6 +35,9 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl('/home');
     }, (err) => {
       console.error(err);
+        this.snackBar.open('Oups ! Vos identifiants sont incorrects !', 'FERMER' , {
+          duration: 3000,
+        });
     });
   }
 }
