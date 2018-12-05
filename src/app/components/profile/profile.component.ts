@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AuthenticationService, UserDetails } from '../../services/authentication.service';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/User.model';
 
 @Component({
   selector: 'app-profile',
@@ -9,13 +10,13 @@ import { AuthenticationService, UserDetails } from '../../services/authenticatio
 })
 export class ProfileComponent implements OnInit {
 
-  details: UserDetails;
+  profile: User;
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.auth.profile().subscribe(user => {
-      this.details = user;
+    this.userService.getProfile().subscribe((data: User) => {
+      this.profile = data;
     }, (err) => {
       console.error(err);
     });

@@ -5,11 +5,15 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getProfiles() {
-    return this.http.get(`${environment.api}/profiles`);
+  getUsers() {
+    return this.http.get(`${environment.api}/users`);
+  }
+
+  getProfile() {
+    return this.http.get(`${environment.api}/user`);
   }
 }

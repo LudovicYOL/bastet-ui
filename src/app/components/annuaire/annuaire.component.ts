@@ -1,5 +1,5 @@
-import { ProfileService } from './../../services/profile.service';
-import { Profile } from './../../models/profile.model';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/User.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,21 +10,19 @@ import { Component, OnInit } from '@angular/core';
 
 export class AnnuaireComponent implements OnInit {
 
-  profiles: Profile[];
+  users: User[];
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.fetchProfiles();
   }
 
   fetchProfiles() {
-    this.profileService
-      .getProfiles()
-      .subscribe((data: Profile[]) => {
-        console.log(data);
-        this.profiles = data;
-        console.log(this.profiles);
+    this.userService
+      .getUsers()
+      .subscribe((data: User[]) => {
+        this.users = data;
       });
   }
 
