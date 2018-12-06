@@ -1,9 +1,67 @@
-.profile-card{
-    max-width:500px;
-    margin:10px;
+.profile-card {
+  max-width: 500px;
+  margin: 10px;
 }
 
-.mat-fab{
-    top: -50px;
-    float: right;
+.mat-fab {
+  top: -50px;
+  float: right;
+}
+
+.initial-avatar {
+  background: #68ae87;
+  color: white;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  text-transform: uppercase;
+  border-radius: 50%;
+}
+
+.profile-description {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.profile-avatar {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 7px;
+  height: 33px;
+}
+
+.profile-contact-card .ng-fa-icon {
+  font-size: 17px;
+}
+
+.contact-container {
+  line-height: 30px;
+}
+
+.contact-container .icon {
+  width: 40px;
+  text-align: center;
+  display: inline-block;
+  color: #545454;
+}
+
+// Couleurs des bordures et du rond
+
+.profile-contact-avatar {
+  background: #ffab40;
+}
+
+.profile-contact-card {
+  border-right: 10px solid #ffab40;
+}
+
+.profile-mission-avatar {
+  background: #323f52;
+  color: white;
+}
+
+.profile-mission-card {
+  border-right: 10px solid #323f52;
 }

@@ -1,0 +1,31 @@
+.initial-avatar{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    text-transform: uppercase;
+    border-radius: 50%;
+}
+
+.yellow{
+    background: #ffab40;
+    color: black;
+}
+
+.blue{
+    background: #323f52;
+    color: white;
+}
+
+.green{
+    background: #68ae87;
+    color: white;
+}
+
+.annuaire-row{
+    padding-left: 10px;
+}
+
+.annuaire-row h4, .annuaire-row p{
+    margin: 5px;
+}

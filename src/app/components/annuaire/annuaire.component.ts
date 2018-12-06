@@ -26,4 +26,13 @@ export class AnnuaireComponent implements OnInit {
       });
   }
 
+  getInitiales(user) {
+    // TODO : remplacer user.name par user.firstname et user.email par user.lastname
+    return user.name.charAt(0) + user.email.charAt(0);
+  }
+
+  getRandomBackgroundColor() {
+    const colors = ['yellow', 'blue', 'green'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
 }
