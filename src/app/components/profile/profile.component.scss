@@ -3,7 +3,7 @@
   margin: 10px;
 }
 
-.mat-fab {
+.profile-edit.mat-fab {
   top: -50px;
   float: right;
 }
@@ -17,6 +17,15 @@
   line-height: 50px;
   text-transform: uppercase;
   border-radius: 50%;
+}
+
+.profile-main-card .mat-card-header .mat-card-title,
+.profile-main-card .mat-card-header .mat-card-subtitle{
+  padding-left: 45px;
+}
+
+.profile-main-card .initial-avatar{
+  position:absolute;
 }
 
 .profile-description {
@@ -47,7 +56,17 @@
   color: #545454;
 }
 
+.contact-edit {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+}
+
 // Couleurs des bordures et du rond
+
+.profile-main-card {
+  border-right: 10px solid #68ae87;
+}
 
 .profile-contact-avatar {
   background: #ffab40;

@@ -1,10 +1,10 @@
 <mat-nav-list>
   <h3 mat-subheader>Annuaire</h3>
   <mat-list-item *ngFor="let user of users">
-    <div class="initial-avatar {{ getRandomBackgroundColor() }}">{{ getInitiales(user) }}</div>
+    <div class="initial-avatar">{{ getInitiales(user) }}</div>
     <div class="annuaire-row">
-        <h4 mat-line>{{ user.name }}</h4>
-        <p mat-line> {{ user.email }} </p>
+        <h4 mat-line>{{ user.firstName }} {{ user.lastName }}</h4>
+        <p mat-line> Promotion {{ user.promotion }} </p>
     </div>
   </mat-list-item>
 </mat-nav-list>

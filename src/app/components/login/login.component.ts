@@ -31,14 +31,20 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.auth.login(this.credentials).subscribe(() => {
-      this.router.navigateByUrl('/home');
-    }, (err) => {
-      console.error(err);
-        this.snackBar.open('Oups ! Vos identifiants sont incorrects !', 'FERMER' , {
-          duration: 3000,
+    if (this.credentials.email !== '' &&
+      this.credentials.password !== '') {
+        this.auth.login(this.credentials).subscribe(() => {
+          this.router.navigateByUrl('/home');
+        }, (err) => {
+          this.snackBar.open('Oups ! Vos identifiants sont incorrects !', 'FERMER', {
+            duration: 3000,
+          });
         });
-    });
+    } else {
+      this.snackBar.open('Veuillez saisir vos identifiants', 'FERMER', {
+        duration: 3000,
+      });
+    }
   }
 }
 

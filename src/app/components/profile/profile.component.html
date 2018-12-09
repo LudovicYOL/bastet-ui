@@ -1,14 +1,15 @@
-<mat-card class="profile-card">
+<mat-card class="profile-card profile-main-card">
   <img mat-card-image src="../../../assets/images/yol_ludovic.jpg" alt="Photo de Ludovic YOL">
 
-  <button mat-fab color="primary">
+  <button class="profile-edit" mat-fab color="primary">
     <mat-icon aria-label="Modifier votre profil">edit</mat-icon>
   </button>
 
   <mat-card-header>
-    <div class="initial-avatar">{{ getInitiales(user) }}</div>
     <mat-card-title>{{ user.firstName }} {{ user.lastName }}</mat-card-title>
     <mat-card-subtitle> Promotion {{ user.promotion }} </mat-card-subtitle>
+
+    <div class="initial-avatar">{{ getInitiales(user) }}</div>
   </mat-card-header>
 
   <mat-card-content>
@@ -28,6 +29,7 @@
     <div mat-card-avatar class="profile-avatar profile-contact-avatar">C</div>
     <mat-card-title>Coordonnées</mat-card-title>
     <mat-card-subtitle>Contact & réseaux sociaux</mat-card-subtitle>
+    <mat-icon *ngIf="canEdit()" class="contact-edit" aria-label="Modifier vos coordonnées" (click)='openEditContactDialog()'>edit</mat-icon>
   </mat-card-header>
   <mat-card-content class="contact-container">
         <div class="icon"><fa-icon [icon]="['fas', 'envelope']"></fa-icon></div> {{ user.email }} <br/>

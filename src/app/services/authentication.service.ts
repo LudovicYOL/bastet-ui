@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
-export interface UserDetails {
+export interface Account {
   _id: string;
   email: string;
   name: string;
@@ -20,7 +20,9 @@ interface TokenResponse {
 export interface TokenPayload {
   email: string;
   password: string;
-  name?: string;
+  firstName?: string;
+  lastName?: string;
+  promotion?: string;
 }
 
 export const TOKEN_NAME = 'mean-token';
@@ -51,7 +53,7 @@ export class AuthenticationService {
     this.router.navigateByUrl('/login');
   }
 
-  public getUserDetails(): UserDetails {
+  public getUserDetails(): Account {
     const token = this.getToken();
     let payload;
     if (token) {

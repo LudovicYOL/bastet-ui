@@ -39,3 +39,9 @@ $custom-theme-warn: mat-palette($mat-red);
 $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
 
 @include angular-material-theme($custom-theme);
+
+// DIALOG BORDER
+
+#update-contact-dialog{
+    border-right: 10px solid #ffab40;
+}

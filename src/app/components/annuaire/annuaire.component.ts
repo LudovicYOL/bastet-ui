@@ -1,5 +1,5 @@
 import { UserService } from '../../services/user.service';
-import { User } from '../../models/User.model';
+import { User } from '../../models/user.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -27,12 +27,6 @@ export class AnnuaireComponent implements OnInit {
   }
 
   getInitiales(user) {
-    // TODO : remplacer user.name par user.firstname et user.email par user.lastname
-    return user.name.charAt(0) + user.email.charAt(0);
-  }
-
-  getRandomBackgroundColor() {
-    const colors = ['yellow', 'blue', 'green'];
-    return colors[Math.floor(Math.random() * colors.length)];
+    return user.firstName.charAt(0) + user.lastName.charAt(0);
   }
 }

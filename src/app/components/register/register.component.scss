@@ -45,6 +45,10 @@
  color:white;
 }
 
+::ng-deep .mat-select-value, ::ng-deep .mat-select-arrow{
+  color:white;
+}
+
 ::ng-deep .register-container .mat-form-field-underline{
  background-color:white;
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserService } from '../../services/user.service';
-import { User } from '../../models/User.model';
+import { AuthenticationService } from '../../services/authentication.service';
+import { User } from '../../models/user.model';
+import { MatDialog } from '@angular/material';
+import { EditContactDialogComponent } from './edit-contact-dialog/edit-contact-dialog.component';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +15,7 @@ export class ProfileComponent implements OnInit {
   profile: User;
   user: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, public auth: AuthenticationService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.userService.getProfile().subscribe((data: User) => {
@@ -25,7 +27,6 @@ export class ProfileComponent implements OnInit {
     const descriptionTemp = 'Je suis Product Owner sur le projet innovant de mon entreprise Eole Consulting : Hygia.' +
     'L\'objectif est de créer un environnement de santé autour du patient.';
 
-
     this.user = {
       firstName: 'Ludovic',
       lastName: 'YOL',
@@ -35,7 +36,7 @@ export class ProfileComponent implements OnInit {
       phone: '0667347221',
       city: 'Toulouse',
       keywords: ['Agilité', 'Hygia', 'Angular', 'Node'],
-      facebook: '',
+      facebook: 'www.google.com',
       twitter: '',
       linkedin: '',
       github: '',
@@ -56,11 +57,29 @@ export class ProfileComponent implements OnInit {
     };
   }
 
+  openEditContactDialog(): void {
+    const dialogRef = this.dialog.open(EditContactDialogComponent, {
+      id: 'update-contact-dialog',
+      data: this.user,
+      ariaLabel: 'contact-dialog',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
+  }
+
   openLinkInNewTab(page) {
-    window.open(page, '_newtab');
+    window.open('http://' + page, '_newtab');
   }
 
   getInitiales(user) {
     return user.firstName.charAt(0) + user.lastName.charAt(0);
   }
+
+  canEdit() {
+    // remplacer par id et pas email
+    return this.auth.getUserDetails().email === this.user.email;
+  }
+
 }
