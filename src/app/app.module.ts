@@ -35,6 +35,7 @@ import { AnnuaireComponent } from './components/annuaire/annuaire.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EditContactDialogComponent } from './components/profile/edit-contact-dialog/edit-contact-dialog.component';
+import { EditMainDialogComponent } from './components/profile/edit-main-dialog/edit-main-dialog.component';
 
 const routes: Routes = [
   {
@@ -69,10 +70,12 @@ const routes: Routes = [
     AnnuaireComponent,
     SettingsComponent,
     NotFoundComponent,
-    EditContactDialogComponent
+    EditContactDialogComponent,
+    EditMainDialogComponent
   ],
   entryComponents: [
-    EditContactDialogComponent
+    EditContactDialogComponent,
+    EditMainDialogComponent
   ],
   imports: [
     BrowserModule,

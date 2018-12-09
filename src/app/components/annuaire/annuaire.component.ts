@@ -22,11 +22,18 @@ export class AnnuaireComponent implements OnInit {
     this.userService
       .getUsers()
       .subscribe((data: User[]) => {
+        console.log(data);
         this.users = data;
       });
   }
 
   getInitiales(user) {
     return user.firstName.charAt(0) + user.lastName.charAt(0);
+  }
+
+  goToUserProfile(id) {
+    this.userService.getUserById(id).subscribe((data: User[]) => {
+      console.log(data);
+    });
   }
 }

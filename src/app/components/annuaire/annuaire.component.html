@@ -2,7 +2,7 @@
   <h3 mat-subheader>Annuaire</h3>
   <mat-list-item *ngFor="let user of users">
     <div class="initial-avatar">{{ getInitiales(user) }}</div>
-    <div class="annuaire-row">
+    <div class="annuaire-row" (click)='goToUserProfile(user._id)'>
         <h4 mat-line>{{ user.firstName }} {{ user.lastName }}</h4>
         <p mat-line> Promotion {{ user.promotion }} </p>
     </div>

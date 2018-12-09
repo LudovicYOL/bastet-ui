@@ -13,7 +13,11 @@ export class UserService {
     return this.http.get(`${environment.api}/users`);
   }
 
-  getProfile() {
-    return this.http.get(`${environment.api}/user`);
+  getUserById(id) {
+    return this.http.get(`${environment.api}/user/` + id);
+  }
+
+  update(user) {
+    return this.http.post(`${environment.api}/user/update`, user);
   }
 }

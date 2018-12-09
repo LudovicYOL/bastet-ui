@@ -41,12 +41,12 @@
  padding: 15px;
 }
 
-::ng-deep .register-container .mat-form-field-label, .register-container .mat-form-field-underline, .login-container .mat-form-field{
+::ng-deep .register-container .mat-form-field-label, 
+.register-container .mat-form-field-underline, 
+.login-container .mat-form-field,
+::ng-deep .mat-select-value, 
+::ng-deep .mat-select-arrow{
  color:white;
-}
-
-::ng-deep .mat-select-value, ::ng-deep .mat-select-arrow{
-  color:white;
 }
 
 ::ng-deep .register-container .mat-form-field-underline{

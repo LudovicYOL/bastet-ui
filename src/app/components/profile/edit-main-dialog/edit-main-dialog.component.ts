@@ -5,21 +5,13 @@ import { FormControl, Validators } from '@angular/forms';
 import { User } from '../../../models/user.model';
 
 @Component({
-  selector: 'app-edit-contact-dialog',
-  templateUrl: './edit-contact-dialog.component.html',
-  styleUrls: ['./edit-contact-dialog.component.scss']
+  selector: 'app-edit-main-dialog',
+  templateUrl: './edit-main-dialog.component.html',
+  styleUrls: ['./edit-main-dialog.component.scss']
 })
-export class EditContactDialogComponent implements OnInit {
+export class EditMainDialogComponent implements OnInit {
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-
-  getEmailErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
-        '';
-  }
-
-  constructor(public dialogRef: MatDialogRef<EditContactDialogComponent>,
+  constructor(public dialogRef: MatDialogRef<EditMainDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public user: User,
     private userService: UserService) { }
 
@@ -35,4 +27,5 @@ export class EditContactDialogComponent implements OnInit {
       this.dialogRef.close();
     });
   }
+
 }

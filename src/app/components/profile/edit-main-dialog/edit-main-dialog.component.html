@@ -1,0 +1,20 @@
+<div mat-dialog-title>
+    <mat-card-title>Données générales</mat-card-title>
+    <mat-card-subtitle>Modification des données générales</mat-card-subtitle>
+</div>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Prénom" [(ngModel)]="user.firstName">
+    <span matPrefix><fa-icon [icon]="['fas', 'mobile-alt']"></fa-icon>&nbsp;</span>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="Nom" [(ngModel)]="user.lastName">
+    <span matPrefix><fa-icon [icon]="['fas', 'map-marker-alt']"></fa-icon>&nbsp;</span>
+  </mat-form-field>
+  <br/>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Annuler</button>
+  <button mat-raised-button color="primary" (click)="update()">Modifier</button>
+</div>

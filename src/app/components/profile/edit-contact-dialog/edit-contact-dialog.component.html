@@ -3,44 +3,44 @@
     <mat-card-subtitle>Contact & réseaux sociaux</mat-card-subtitle>
 </div>
 <div mat-dialog-content>
-  <mat-form-field>
-    <input matInput placeholder="E-mail" [formControl]="email" [(ngModel)]="data.email" required>
+  <mat-form-field class="mat-form-field-with-hint">
+    <input matInput placeholder="E-mail" [formControl]="email" [(ngModel)]="user.email" required>
     <span matPrefix><fa-icon [icon]="['fas', 'envelope']"></fa-icon>&nbsp;</span>
     <mat-hint>L'adresse mail à laquelle vous contacter (peut différente de celle de connexion)</mat-hint>
     <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
   </mat-form-field>
   <br />
   <mat-form-field>
-    <input matInput placeholder="Téléphone" [(ngModel)]="data.phone">
+    <input matInput placeholder="Téléphone" [(ngModel)]="user.phone">
     <span matPrefix><fa-icon [icon]="['fas', 'mobile-alt']"></fa-icon>&nbsp;</span>
   </mat-form-field>
   <br />
   <mat-form-field>
-    <input matInput placeholder="Ville" [(ngModel)]="data.city">
+    <input matInput placeholder="Ville" [(ngModel)]="user.city">
     <span matPrefix><fa-icon [icon]="['fas', 'map-marker-alt']"></fa-icon>&nbsp;</span>
   </mat-form-field>
   <br/>
   <mat-form-field>
-    <input matInput placeholder="Facebook" [(ngModel)]="data.facebook">
+    <input matInput placeholder="Facebook" [(ngModel)]="user.facebook">
     <span matPrefix><fa-icon [icon]="['fab', 'facebook']"></fa-icon>&nbsp;</span>
   </mat-form-field>
   <br/>
   <mat-form-field>
-    <input matInput placeholder="Twitter" [(ngModel)]="data.twitter">
+    <input matInput placeholder="Twitter" [(ngModel)]="user.twitter">
     <span matPrefix><fa-icon [icon]="['fab', 'twitter']"></fa-icon>&nbsp;</span>
   </mat-form-field>
   <br/>
   <mat-form-field>
-    <input matInput placeholder="LinkedIn" [(ngModel)]="data.linkedin">
+    <input matInput placeholder="LinkedIn" [(ngModel)]="user.linkedin">
     <span matPrefix><fa-icon [icon]="['fab', 'linkedin']"></fa-icon>&nbsp;</span>
   </mat-form-field>
   <br/>
   <mat-form-field>
-    <input matInput placeholder="Github" [(ngModel)]="data.github">
+    <input matInput placeholder="Github" [(ngModel)]="user.github">
     <span matPrefix><fa-icon [icon]="['fab', 'github']"></fa-icon>&nbsp;</span>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="annuler()">Annuler</button>
-  <button mat-flat-button>Modifier</button>
+  <button mat-button (click)="cancel()">Annuler</button>
+  <button mat-raised-button color="primary" (click)="update()">Modifier</button>
 </div>

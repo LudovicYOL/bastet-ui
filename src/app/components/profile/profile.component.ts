@@ -4,6 +4,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { User } from '../../models/user.model';
 import { MatDialog } from '@angular/material';
 import { EditContactDialogComponent } from './edit-contact-dialog/edit-contact-dialog.component';
+import { EditMainDialogComponent } from './edit-main-dialog/edit-main-dialog.component';
 
 @Component({
   selector: 'app-profile',
@@ -12,22 +13,18 @@ import { EditContactDialogComponent } from './edit-contact-dialog/edit-contact-d
 })
 export class ProfileComponent implements OnInit {
 
-  profile: User;
-  user: any;
+  user: User;
+  profile: any;
 
   constructor(private userService: UserService, public auth: AuthenticationService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.userService.getProfile().subscribe((data: User) => {
-      this.profile = data;
-    }, (err) => {
-      console.error(err);
-    });
+    this.fetchProfile();
 
     const descriptionTemp = 'Je suis Product Owner sur le projet innovant de mon entreprise Eole Consulting : Hygia.' +
     'L\'objectif est de créer un environnement de santé autour du patient.';
 
-    this.user = {
+    this.profile = {
       firstName: 'Ludovic',
       lastName: 'YOL',
       promotion: '2016',
@@ -57,18 +54,44 @@ export class ProfileComponent implements OnInit {
     };
   }
 
+  fetchProfile() {
+    const id = this.auth.getUserDetails()._id;
+    this.userService.getUserById(id).subscribe((data: User) => {
+      this.user = data;
+    }, (err) => {
+      console.error(err);
+    });
+  }
+
+  // Modification des données générales
+  openEditMainDialog(): void {
+    const editMainDialogRef = this.dialog.open(EditMainDialogComponent, {
+      id: 'update-main-dialog',
+      data: this.user,
+      ariaLabel: 'main-dialog',
+    });
+
+    editMainDialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.fetchProfile();
+    });
+  }
+
+  // Modification des coordonnées
   openEditContactDialog(): void {
-    const dialogRef = this.dialog.open(EditContactDialogComponent, {
+    const editContactDialogRef = this.dialog.open(EditContactDialogComponent, {
       id: 'update-contact-dialog',
       data: this.user,
       ariaLabel: 'contact-dialog',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    editContactDialogRef.afterClosed().subscribe(result => {
       console.log(result);
+      this.fetchProfile();
     });
   }
 
+  // Utiles
   openLinkInNewTab(page) {
     window.open('http://' + page, '_newtab');
   }
@@ -78,8 +101,9 @@ export class ProfileComponent implements OnInit {
   }
 
   canEdit() {
-    // remplacer par id et pas email
-    return this.auth.getUserDetails().email === this.user.email;
+    if (this.user && this.user.email) {
+      return this.auth.getUserDetails().email === this.user.email;
+    }
   }
 
 }

@@ -1,73 +1,79 @@
-<mat-card class="profile-card profile-main-card">
-  <img mat-card-image src="../../../assets/images/yol_ludovic.jpg" alt="Photo de Ludovic YOL">
+<div *ngIf="user">
+  <mat-card class="profile-card profile-main-card">
+    <img mat-card-image src="../../../assets/images/yol_ludovic.jpg" alt="Photo de Ludovic YOL">
 
-  <button class="profile-edit" mat-fab color="primary">
-    <mat-icon aria-label="Modifier votre profil">edit</mat-icon>
-  </button>
+    <button class="profile-edit" mat-fab color="primary" (click)='openEditMainDialog()'>
+      <mat-icon aria-label="Modifier votre profil">edit</mat-icon>
+    </button>
 
-  <mat-card-header>
-    <mat-card-title>{{ user.firstName }} {{ user.lastName }}</mat-card-title>
-    <mat-card-subtitle> Promotion {{ user.promotion }} </mat-card-subtitle>
+    <mat-card-header>
+      <mat-card-title>{{ user.firstName }} {{ user.lastName }}</mat-card-title>
+      <mat-card-subtitle> Promotion {{ user.promotion }} </mat-card-subtitle>
 
-    <div class="initial-avatar">{{ getInitiales(user) }}</div>
-  </mat-card-header>
+      <div class="initial-avatar">{{ getInitiales(user) }}</div>
+    </mat-card-header>
 
-  <mat-card-content>
-    <div class="profile-description">
-      {{ user.description }}
-    </div>
+    <mat-card-content>
+      <div class="profile-description">
+        {{ user.description }}
+      </div>
 
-    <mat-chip-list class="profile-keywords">
-        <mat-chip *ngFor="let keyword of user.keywords">{{ keyword }}</mat-chip>
+      <mat-chip-list class="profile-keywords">
+        <mat-chip *ngFor="let keyword of profile.keywords">{{ keyword }}</mat-chip>
       </mat-chip-list>
-  </mat-card-content>
-</mat-card>
+    </mat-card-content>
+  </mat-card>
 
 
-<mat-card class="profile-card profile-contact-card">
-  <mat-card-header>
-    <div mat-card-avatar class="profile-avatar profile-contact-avatar">C</div>
-    <mat-card-title>Coordonnées</mat-card-title>
-    <mat-card-subtitle>Contact & réseaux sociaux</mat-card-subtitle>
-    <mat-icon *ngIf="canEdit()" class="contact-edit" aria-label="Modifier vos coordonnées" (click)='openEditContactDialog()'>edit</mat-icon>
-  </mat-card-header>
-  <mat-card-content class="contact-container">
-        <div class="icon"><fa-icon [icon]="['fas', 'envelope']"></fa-icon></div> {{ user.email }} <br/>
-        <div class="icon"><fa-icon [icon]="['fas', 'mobile-alt']"></fa-icon></div> {{ user.phone }} <br/>
-        <div class="icon"><fa-icon [icon]="['fas', 'map-marker-alt']"></fa-icon></div> {{ user.city }} <br/>
-  </mat-card-content>
-  <mat-card-actions>
-    <div fxLayout="row" fxLayoutAlign="center center">
-      <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.twitter)">
-        <fa-icon [icon]="['fab', 'twitter']"></fa-icon>
-      </button>
-      <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.facebook)">
-        <fa-icon [icon]="['fab', 'facebook']"></fa-icon>
-      </button>
-      <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.linkedin)">
-        <fa-icon [icon]="['fab', 'linkedin']"></fa-icon>
-      </button>
-      <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.github)">
-        <fa-icon [icon]="['fab', 'github']"></fa-icon>
-      </button></div>
-  </mat-card-actions>
-</mat-card>
+  <mat-card class="profile-card profile-contact-card">
+    <mat-card-header>
+      <div mat-card-avatar class="profile-avatar profile-contact-avatar">C</div>
+      <mat-card-title>Coordonnées</mat-card-title>
+      <mat-card-subtitle>Contact & réseaux sociaux</mat-card-subtitle>
+      <mat-icon *ngIf="canEdit()" class="contact-edit" aria-label="Modifier vos coordonnées" (click)='openEditContactDialog()'>edit</mat-icon>
+    </mat-card-header>
+    <mat-card-content class="contact-container">
+      <div class="icon">
+        <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
+      </div> {{ user.email }} <br />
+      <div class="icon">
+        <fa-icon [icon]="['fas', 'mobile-alt']"></fa-icon>
+      </div> {{ user.phone }} <br />
+      <div class="icon">
+        <fa-icon [icon]="['fas', 'map-marker-alt']"></fa-icon>
+      </div> {{ user.city }} <br />
+    </mat-card-content>
+    <mat-card-actions>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.twitter)">
+          <fa-icon [icon]="['fab', 'twitter']"></fa-icon>
+        </button>
+        <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.facebook)">
+          <fa-icon [icon]="['fab', 'facebook']"></fa-icon>
+        </button>
+        <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.linkedin)">
+          <fa-icon [icon]="['fab', 'linkedin']"></fa-icon>
+        </button>
+        <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.github)">
+          <fa-icon [icon]="['fab', 'github']"></fa-icon>
+        </button></div>
+    </mat-card-actions>
+  </mat-card>
 
-<mat-card class="profile-card profile-mission-card">
+  <mat-card class="profile-card profile-mission-card">
     <mat-card-header>
       <div mat-card-avatar class="profile-avatar profile-mission-avatar">M</div>
       <mat-card-title>Missions</mat-card-title>
       <mat-card-subtitle>Mes expériences professionnelles</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="contact-container">
-        <mat-list>
-            <mat-list-item *ngFor="let mission of user.missions">
-              <!-- <mat-icon mat-list-icon>folder</mat-icon> -->
-              <h4 mat-line>{{ mission.titre }} à {{ mission.entreprise }}</h4>
-              <p mat-line> {{ mission.debut }} - {{ mission.fin }} </p>
-              <mat-divider></mat-divider>
-            </mat-list-item>
-          </mat-list>
+      <mat-list>
+        <mat-list-item *ngFor="let mission of profile.missions">
+          <h4 mat-line>{{ mission.titre }} à {{ mission.entreprise }}</h4>
+          <p mat-line> {{ mission.debut }} - {{ mission.fin }} </p>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
     </mat-card-content>
   </mat-card>
-  
+</div>
