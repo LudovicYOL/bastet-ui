@@ -1,3 +1,4 @@
+import { NotDisclosedPipe } from './../pipes/not-disclosed.pipe';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { AuthenticationService } from '../../services/authentication.service';

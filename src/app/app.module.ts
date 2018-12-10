@@ -8,6 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Custom module
+// TODO : créer un module pour les icones
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -16,12 +18,15 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { MaterialModule } from './core/material.module';
 
+// Authentification
 import { AuthGuardService } from './services/auth-guard.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
 
+// Services
 import { IssueService } from './services/issue.service';
 
+// Components
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { IssuesListComponent } from './components/issues-list/issues-list.component';
@@ -36,6 +41,9 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EditContactDialogComponent } from './components/profile/edit-contact-dialog/edit-contact-dialog.component';
 import { EditMainDialogComponent } from './components/profile/edit-main-dialog/edit-main-dialog.component';
+
+// Pipes
+import { NotDisclosedPipe } from './components/pipes/not-disclosed.pipe';
 
 const routes: Routes = [
   {
@@ -71,7 +79,8 @@ const routes: Routes = [
     SettingsComponent,
     NotFoundComponent,
     EditContactDialogComponent,
-    EditMainDialogComponent
+    EditMainDialogComponent,
+    NotDisclosedPipe
   ],
   entryComponents: [
     EditContactDialogComponent,

@@ -35,26 +35,26 @@
     <mat-card-content class="contact-container">
       <div class="icon">
         <fa-icon [icon]="['fas', 'envelope']"></fa-icon>
-      </div> {{ user.email }} <br />
+      </div> {{ user.email | notDisclosed }} <br />
       <div class="icon">
         <fa-icon [icon]="['fas', 'mobile-alt']"></fa-icon>
-      </div> {{ user.phone }} <br />
+      </div> {{ user.phone | notDisclosed }} <br />
       <div class="icon">
         <fa-icon [icon]="['fas', 'map-marker-alt']"></fa-icon>
-      </div> {{ user.city }} <br />
+      </div> {{ user.city | notDisclosed }} <br />
     </mat-card-content>
     <mat-card-actions>
       <div fxLayout="row" fxLayoutAlign="center center">
-        <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.twitter)">
+        <button mat-icon-button color="accent" *ngIf="user.twitter" (click)="openLinkInNewTab(user.twitter)">
           <fa-icon [icon]="['fab', 'twitter']"></fa-icon>
         </button>
-        <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.facebook)">
+        <button mat-icon-button color="accent" *ngIf="user.facebook" (click)="openLinkInNewTab(user.facebook)">
           <fa-icon [icon]="['fab', 'facebook']"></fa-icon>
         </button>
-        <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.linkedin)">
+        <button mat-icon-button color="accent" *ngIf="user.linkedin" (click)="openLinkInNewTab(user.linkedin)">
           <fa-icon [icon]="['fab', 'linkedin']"></fa-icon>
         </button>
-        <button mat-icon-button color="accent" (click)="openLinkInNewTab(user.github)">
+        <button mat-icon-button color="accent" *ngIf="user.github" (click)="openLinkInNewTab(user.github)">
           <fa-icon [icon]="['fab', 'github']"></fa-icon>
         </button></div>
     </mat-card-actions>
