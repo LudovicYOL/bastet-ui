@@ -11,4 +11,5 @@ export interface User {
     twitter: string;
     linkedin: string;
     github: string;
+    keywords: Array<string>;
 }

@@ -22,22 +22,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.fetchProfile();
 
-    const descriptionTemp = 'Je suis Product Owner sur le projet innovant de mon entreprise Eole Consulting : Hygia.' +
-    'L\'objectif est de créer un environnement de santé autour du patient.';
-
     this.profile = {
-      firstName: 'Ludovic',
-      lastName: 'YOL',
-      promotion: '2016',
-      description: descriptionTemp,
-      email: 'ludovic.yol@gmail.com',
-      phone: '0667347221',
-      city: 'Toulouse',
-      keywords: ['Agilité', 'Hygia', 'Angular', 'Node'],
-      facebook: 'www.google.com',
-      twitter: '',
-      linkedin: '',
-      github: '',
       missions: [
         {
           titre: 'Product Owner',
@@ -73,7 +58,6 @@ export class ProfileComponent implements OnInit {
     });
 
     editMainDialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       this.fetchProfile();
     });
   }

@@ -2,6 +2,7 @@ import { UserService } from './../../../services/user.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 import { User } from '../../../models/user.model';
 
 @Component({
@@ -21,7 +22,8 @@ export class EditContactDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<EditContactDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public user: User,
-    private userService: UserService) { }
+    private userService: UserService,
+    public snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -31,8 +33,14 @@ export class EditContactDialogComponent implements OnInit {
   }
 
   update(): void {
-    this.userService.update(this.user).subscribe(() => {
-      this.dialogRef.close();
-    });
+    if (this.user.email !== '') {
+      this.userService.update(this.user).subscribe(() => {
+        this.dialogRef.close();
+      });
+    } else {
+      this.snackBar.open('Veuillez remplir tous les champs', 'FERMER', {
+        duration: 3000,
+      });
+    }
   }
 }

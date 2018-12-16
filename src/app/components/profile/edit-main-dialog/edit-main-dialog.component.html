@@ -1,24 +1,51 @@
 <div mat-dialog-title>
-    <mat-card-title>Données générales</mat-card-title>
-    <mat-card-subtitle>Modification des données générales</mat-card-subtitle>
+  <mat-card-title>Données générales</mat-card-title>
+  <mat-card-subtitle>Modification des données générales</mat-card-subtitle>
 </div>
-<div mat-dialog-content>
-  <mat-form-field>
-    <input matInput placeholder="Prénom" [(ngModel)]="user.firstName">
-    <span matPrefix><fa-icon [icon]="['fas', 'mobile-alt']"></fa-icon>&nbsp;</span>
-  </mat-form-field>
-  <br />
-  <mat-form-field>
-    <input matInput placeholder="Nom" [(ngModel)]="user.lastName">
-    <span matPrefix><fa-icon [icon]="['fas', 'map-marker-alt']"></fa-icon>&nbsp;</span>
-  </mat-form-field>
-  <br/>
-  <mat-form-field>
-      <textarea matInput placeholder="Description" [(ngModel)]="user.description"></textarea>
-      <span matPrefix><fa-icon [icon]="['fas', 'map-marker-alt']"></fa-icon>&nbsp;</span>
+<form (submit)="update()">
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input matInput placeholder="Prénom" name="firstName" required [(ngModel)]="user.firstName">
+      <span matPrefix>
+        <fa-icon [icon]="['fas', 'mobile-alt']"></fa-icon>&nbsp;
+      </span>
     </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="cancel()">Annuler</button>
-  <button mat-raised-button color="primary" (click)="update()">Modifier</button>
-</div>
+    <br />
+    <mat-form-field>
+      <input matInput placeholder="Nom" name="lastName" required [(ngModel)]="user.lastName">
+      <span matPrefix>
+        <fa-icon [icon]="['fas', 'map-marker-alt']"></fa-icon>&nbsp;
+      </span>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <mat-select placeholder="Promotion" required name="promotion" [(ngModel)]="user.promotion">
+        <mat-option *ngFor="let promotion of promotions" [(value)]="promotion">
+          {{ promotion }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <textarea matInput placeholder="Description" name="description" [(ngModel)]="user.description"></textarea>
+      <span matPrefix>
+        <fa-icon [icon]="['fas', 'map-marker-alt']"></fa-icon>&nbsp;
+      </span>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="profile-keywords">
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let keyword of user.keywords" [removable]="true" (removed)="remove(keyword)">
+          {{ keyword }}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Nouveau mot clé..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Annuler</button>
+    <button mat-raised-button type="submit" color="primary">Modifier</button>
+  </div>
+</form>
