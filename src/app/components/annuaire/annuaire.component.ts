@@ -1,6 +1,7 @@
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-annuaire',
@@ -12,7 +13,7 @@ export class AnnuaireComponent implements OnInit {
 
   users: User[];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.fetchProfiles();
@@ -22,7 +23,6 @@ export class AnnuaireComponent implements OnInit {
     this.userService
       .getUsers()
       .subscribe((data: User[]) => {
-        console.log(data);
         this.users = data;
       });
   }
@@ -32,8 +32,6 @@ export class AnnuaireComponent implements OnInit {
   }
 
   goToUserProfile(id) {
-    this.userService.getUserById(id).subscribe((data: User[]) => {
-      console.log(data);
-    });
+    this.router.navigate(['/profile/' + id]);
   }
 }

@@ -6,6 +6,7 @@ import { User } from '../../models/user.model';
 import { MatDialog } from '@angular/material';
 import { EditContactDialogComponent } from './edit-contact-dialog/edit-contact-dialog.component';
 import { EditMainDialogComponent } from './edit-main-dialog/edit-main-dialog.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +18,11 @@ export class ProfileComponent implements OnInit {
   user: User;
   profile: any;
 
-  constructor(private userService: UserService, public auth: AuthenticationService, public dialog: MatDialog) { }
+  constructor(
+    private userService: UserService,
+    public auth: AuthenticationService,
+    public dialog: MatDialog,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.fetchProfile();
@@ -41,7 +46,15 @@ export class ProfileComponent implements OnInit {
   }
 
   fetchProfile() {
-    const id = this.auth.getUserDetails()._id;
+    // Récupération de l'id du profil à afficher
+    // Je vérifie d'abord dans l'URL
+    let id = this.route.snapshot.paramMap.get('id');
+    if (!id) {
+      // S'il n'y a rien, c'est que je veux afficher mon profil
+      id = this.auth.getUserDetails()._id;
+    }
+
+    // Récupération des données du profil
     this.userService.getUserById(id).subscribe((data: User) => {
       this.user = data;
     }, (err) => {

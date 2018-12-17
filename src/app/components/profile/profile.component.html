@@ -2,7 +2,7 @@
   <mat-card class="profile-card profile-main-card">
     <img mat-card-image src="../../../assets/images/yol_ludovic.jpg" alt="Photo de Ludovic YOL">
 
-    <button class="profile-edit" mat-fab color="primary" (click)='openEditMainDialog()'>
+    <button class="profile-edit" mat-fab color="primary" *ngIf="canEdit()" (click)='openEditMainDialog()'>
       <mat-icon aria-label="Modifier votre profil">edit</mat-icon>
     </button>
 
