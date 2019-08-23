@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
     if (!id) {
       // S'il n'y a rien, c'est que je veux afficher mon profil
-      id = this.auth.getUserDetails()._id;
+      id = this.auth.getUserDetails().user;
     }
 
     // Récupération des données du profil

@@ -9,6 +9,7 @@ export interface Account {
   _id: string;
   email: string;
   name: string;
+  user: string;
   exp: number;
   iat: number;
 }
