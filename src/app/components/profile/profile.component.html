@@ -72,7 +72,12 @@
       <mat-list *ngIf="missions.length > 0">
         <mat-list-item *ngFor="let mission of missions">
           <h4 mat-line>{{ mission.poste }} à {{ mission.enterprise }}</h4>
-          <p mat-line> {{ mission.startMonth }} {{ mission.startYear }} - {{ mission.endMonth }} {{ mission.endYear }}</p>
+          <p mat-line>
+            <span> {{ months[mission.startMonth] }} {{ mission.startYear }} </span> 
+            <span class="date-spacer"> - </span>
+            <span *ngIf="mission.endYear">{{ months[mission.endMonth] }} {{ mission.endYear }} </span>
+            <span *ngIf="!mission.endYear">en cours</span>
+            </p>
           <mat-icon *ngIf="canEdit()" class="mission-delete" aria-label="Supprimer la mission" (click)='openDeleteMissionDialog(mission)'>delete</mat-icon>
           <mat-divider></mat-divider>
         </mat-list-item>

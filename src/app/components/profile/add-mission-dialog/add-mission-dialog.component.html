@@ -11,6 +11,13 @@
   </mat-form-field>
   <br />
   <mat-form-field>
+      <input matInput placeholder="Entreprise" name="enterprise" required [(ngModel)]="mission.enterprise">
+      <span matPrefix>
+        <fa-icon [icon]="['fas', 'building']"></fa-icon>&nbsp;
+      </span>
+    </mat-form-field>
+    <br />
+  <mat-form-field>
     <mat-select placeholder="Domaine" required name="domain" [(ngModel)]="mission.domain">
       <mat-option *ngFor="let domain of domains" [(value)]="domain">
         {{ domain }}
@@ -19,15 +26,8 @@
   </mat-form-field>
   <br />
   <mat-form-field>
-    <input matInput placeholder="Entreprise" name="enterprise" required [(ngModel)]="mission.enterprise">
-    <span matPrefix>
-      <fa-icon [icon]="['fas', 'building']"></fa-icon>&nbsp;
-    </span>
-  </mat-form-field>
-  <br />
-  <mat-form-field>
     <mat-select placeholder="Mois de début" required name="startMonth" [(ngModel)]="mission.startMonth">
-      <mat-option *ngFor="let month of months" [(value)]="month">
+      <mat-option *ngFor="let month of months; let i = index" [(value)]="i">
         {{ month }}
       </mat-option>
     </mat-select>
@@ -42,7 +42,7 @@
   <br />
   <mat-form-field>
     <mat-select placeholder="Mois de fin" name="endMonth" [(ngModel)]="mission.endMonth">
-      <mat-option *ngFor="let month of months" [(value)]="month">
+      <mat-option *ngFor="let month of months; let i = index" [(value)]="i">
         {{ month }}
       </mat-option>
     </mat-select>

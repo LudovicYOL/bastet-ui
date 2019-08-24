@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
   missions: Mission[];
   profile: any;
 
+  months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Décembre"];
+
   constructor(
     private userService: UserService,
     public auth: AuthenticationService,
@@ -31,6 +33,7 @@ export class ProfileComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.missions = [];
     this.fetchProfile();
   }
 
