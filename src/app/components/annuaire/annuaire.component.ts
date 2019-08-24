@@ -39,10 +39,8 @@ export class AnnuaireComponent implements OnInit {
       , distinctUntilChanged()
     ).subscribe((text: string) => {
       if(text.length == 0){
-        console.log("festch all");
         this.fetchProfiles();
       }else{
-        console.log("search "+ text);
         this.isSearching = true;
         this.userService
           .searchUsers(text).subscribe((res) => {

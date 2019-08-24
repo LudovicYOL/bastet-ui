@@ -17,11 +17,16 @@
     margin: 5px;
 }
 
+.mat-nav-list{
+    height: 90%;
+    overflow: auto;
+}
+
 .search-form{
     width: 100%;
     background: #334051;
     color: white;
-    position: absolute;
+    position: fixed;
     bottom: 0;
 }
 

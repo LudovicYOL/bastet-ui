@@ -1,6 +1,6 @@
 <mat-nav-list>
   <h3 mat-subheader>Annuaire</h3>
-  <div *ngIf="!isSearching">
+  <div class="result-container" *ngIf="!isSearching">
     <!-- If no results -->
     <div class="no-result" *ngIf="users.length == 0">
       <img src="../../../assets/images/no-results.png">
