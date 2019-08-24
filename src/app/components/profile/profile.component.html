@@ -64,13 +64,16 @@
     <mat-card-header>
       <div mat-card-avatar class="profile-avatar profile-mission-avatar">M</div>
       <mat-card-title>Missions</mat-card-title>
-      <mat-card-subtitle>Mes expériences professionnelles</mat-card-subtitle>
+      <mat-card-subtitle>Expériences professionnelles</mat-card-subtitle>
+      <mat-icon *ngIf="canEdit()" class="mission-add" aria-label="Ajouter une mission" (click)='openAddMissionDialog()'>add</mat-icon>
     </mat-card-header>
     <mat-card-content class="contact-container">
-      <mat-list>
-        <mat-list-item *ngFor="let mission of profile.missions">
-          <h4 mat-line>{{ mission.titre }} à {{ mission.entreprise }}</h4>
-          <p mat-line> {{ mission.debut }} - {{ mission.fin }} </p>
+      <div class="no-mission" *ngIf="missions.length == 0">Aucune mission renseignée</div>
+      <mat-list *ngIf="missions.length > 0">
+        <mat-list-item *ngFor="let mission of missions">
+          <h4 mat-line>{{ mission.poste }} à {{ mission.enterprise }}</h4>
+          <p mat-line> {{ mission.startMonth }} {{ mission.startYear }} - {{ mission.endMonth }} {{ mission.endYear }}</p>
+          <mat-icon *ngIf="canEdit()" class="mission-delete" aria-label="Supprimer la mission" (click)='openDeleteMissionDialog(mission)'>delete</mat-icon>
           <mat-divider></mat-divider>
         </mat-list-item>
       </mat-list>

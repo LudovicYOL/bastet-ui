@@ -18,7 +18,8 @@
 }
 
 .mat-nav-list{
-    height: 90%;
+    // TODO : This is shiiiiit, but sufficient for v1. Please, change it as soon as possible
+    height: 85%;
     overflow: auto;
 }
 
@@ -80,4 +81,8 @@
     text-transform: uppercase;
     font-weight: 500;
     color: #b6bec7;
+}
+
+.result-container{
+    padding-bottom: 50px;
 }

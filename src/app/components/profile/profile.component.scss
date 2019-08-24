@@ -20,12 +20,12 @@
 }
 
 .profile-main-card .mat-card-header .mat-card-title,
-.profile-main-card .mat-card-header .mat-card-subtitle{
+.profile-main-card .mat-card-header .mat-card-subtitle {
   padding-left: 45px;
 }
 
-.profile-main-card .initial-avatar{
-  position:absolute;
+.profile-main-card .initial-avatar {
+  position: absolute;
 }
 
 .profile-description {
@@ -62,6 +62,17 @@
   cursor: pointer;
 }
 
+.mission-add {
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+}
+
+.mission-delete {
+  cursor: pointer;
+}
+
+
 // Couleurs des bordures et du rond
 
 .profile-main-card {
@@ -84,3 +95,5 @@
 .profile-mission-card {
   border-right: 10px solid #323f52;
 }
+
+

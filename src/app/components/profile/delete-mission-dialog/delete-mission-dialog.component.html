@@ -1,0 +1,12 @@
+<div mat-dialog-title>
+  <mat-card-title>Mission</mat-card-title>
+  <mat-card-subtitle>Suppression d'une mission</mat-card-subtitle>
+</div>
+<div mat-dialog-content>
+  Vous êtes sur le point de supprimer votre mission de <b>{{ mission.poste }}</b> à <b>{{ mission.enterprise }}</b>.<br/><br/>
+  Etes-vous sur de vouloir la supprimer ?<br/>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Annuler</button>
+  <button mat-raised-button class="delete-button" (click)="deleteMission()" color="primary">Supprimer</button>
+</div>

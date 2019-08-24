@@ -25,6 +25,7 @@ import { TokenInterceptor } from './services/token.interceptor';
 
 // Services
 import { IssueService } from './services/issue.service';
+import { MissionService } from './services/mission.service';
 
 // Components
 import { RegisterComponent } from './components/register/register.component';
@@ -39,8 +40,11 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AnnuaireComponent } from './components/annuaire/annuaire.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+
 import { EditContactDialogComponent } from './components/profile/edit-contact-dialog/edit-contact-dialog.component';
 import { EditMainDialogComponent } from './components/profile/edit-main-dialog/edit-main-dialog.component';
+import { AddMissionDialogComponent } from './components/profile/add-mission-dialog/add-mission-dialog.component';
+import { DeleteMissionDialogComponent } from './components/profile/delete-mission-dialog/delete-mission-dialog.component';
 
 // Pipes
 import { NotDisclosedPipe } from './components/pipes/not-disclosed.pipe';
@@ -81,11 +85,15 @@ const routes: Routes = [
     NotFoundComponent,
     EditContactDialogComponent,
     EditMainDialogComponent,
-    NotDisclosedPipe
+    NotDisclosedPipe,
+    AddMissionDialogComponent,
+    DeleteMissionDialogComponent
   ],
   entryComponents: [
     EditContactDialogComponent,
-    EditMainDialogComponent
+    EditMainDialogComponent,
+    AddMissionDialogComponent,
+    DeleteMissionDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,6 +108,7 @@ const routes: Routes = [
   ],
   providers: [
     IssueService,
+    MissionService,
     AuthGuardService,
     AuthenticationService,
     {

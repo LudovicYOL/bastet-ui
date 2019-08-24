@@ -44,8 +44,15 @@ $custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $cus
 
 #update-main-dialog {
   border-right: 10px solid #68ae87;
+  overflow-x: hidden;
 }
 
 #update-contact-dialog {
   border-right: 10px solid #ffab40;
+  overflow-x: hidden;
+}
+
+#add-mission-dialog, #delete-mission-dialog {
+  border-right: 10px solid #323f52;
+  overflow-x: hidden;
 }

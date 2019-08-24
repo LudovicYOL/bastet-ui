@@ -6,7 +6,11 @@ import { User } from '../../models/user.model';
 import { MatDialog } from '@angular/material';
 import { EditContactDialogComponent } from './edit-contact-dialog/edit-contact-dialog.component';
 import { EditMainDialogComponent } from './edit-main-dialog/edit-main-dialog.component';
+import { AddMissionDialogComponent } from './add-mission-dialog/add-mission-dialog.component';
 import { ActivatedRoute } from '@angular/router';
+import { MissionService } from 'src/app/services/mission.service';
+import { Mission } from 'src/app/models/Mission.model';
+import { DeleteMissionDialogComponent } from './delete-mission-dialog/delete-mission-dialog.component';
 
 @Component({
   selector: 'app-profile',
@@ -16,33 +20,18 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileComponent implements OnInit {
 
   user: User;
+  missions: Mission[];
   profile: any;
 
   constructor(
     private userService: UserService,
     public auth: AuthenticationService,
+    public missionService: MissionService,
     public dialog: MatDialog,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.fetchProfile();
-
-    this.profile = {
-      missions: [
-        {
-          titre: 'Product Owner',
-          entreprise: 'Hygia',
-          debut: 'Juillet 2018',
-          fin: 'En cours'
-        },
-        {
-          titre: 'Développeur FullStack',
-          entreprise: 'Mipih via Eole Consulting',
-          debut: 'Septembre 2017',
-          fin: 'Juillet 2018'
-        },
-      ]
-    };
   }
 
   fetchProfile() {
@@ -59,6 +48,13 @@ export class ProfileComponent implements OnInit {
       this.user = data;
     }, (err) => {
       console.error(err);
+    });
+
+    // Récupération des missions
+    this.missionService.getMissionByUser(id).subscribe((data: Mission[])=> {
+      this.missions = data;
+    },(err) => {
+      console.log(err);
     });
   }
 
@@ -84,7 +80,32 @@ export class ProfileComponent implements OnInit {
     });
 
     editContactDialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      this.fetchProfile();
+    });
+  }
+
+  // Ajout d'une mission
+  openAddMissionDialog(){
+    const addMissionDialogRef = this.dialog.open(AddMissionDialogComponent, {
+      id: 'add-mission-dialog',
+      data: this.user,
+      ariaLabel: 'add-mission-dialog',
+    });
+
+    addMissionDialogRef.afterClosed().subscribe(result => {
+      this.fetchProfile();
+    });
+  }
+
+  // Suppression d'une mission
+  openDeleteMissionDialog(mission){
+    const deleteMissionDialogRef = this.dialog.open(DeleteMissionDialogComponent, {
+      id: 'delete-mission-dialog',
+      data: mission,
+      ariaLabel: 'delete-mission-dialog',
+    });
+
+    deleteMissionDialogRef.afterClosed().subscribe(result => {
       this.fetchProfile();
     });
   }
@@ -103,5 +124,4 @@ export class ProfileComponent implements OnInit {
       return this.auth.getUserDetails().email === this.user.email;
     }
   }
-
 }

@@ -1,0 +1,61 @@
+<div mat-dialog-title>
+  <mat-card-title>Mission</mat-card-title>
+  <mat-card-subtitle>Ajout d'une mission</mat-card-subtitle>
+</div>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Poste" name="poste" required [(ngModel)]="mission.poste">
+    <span matPrefix>
+      <fa-icon [icon]="['fas', 'briefcase']"></fa-icon>&nbsp;
+    </span>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-select placeholder="Domaine" required name="domain" [(ngModel)]="mission.domain">
+      <mat-option *ngFor="let domain of domains" [(value)]="domain">
+        {{ domain }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <input matInput placeholder="Entreprise" name="enterprise" required [(ngModel)]="mission.enterprise">
+    <span matPrefix>
+      <fa-icon [icon]="['fas', 'building']"></fa-icon>&nbsp;
+    </span>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-select placeholder="Mois de début" required name="startMonth" [(ngModel)]="mission.startMonth">
+      <mat-option *ngFor="let month of months" [(value)]="month">
+        {{ month }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Année de début" required name="startYear" [(ngModel)]="mission.startYear">
+      <mat-option *ngFor="let year of years" [(value)]="year">
+        {{ year }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <mat-select placeholder="Mois de fin" name="endMonth" [(ngModel)]="mission.endMonth">
+      <mat-option *ngFor="let month of months" [(value)]="month">
+        {{ month }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Année de fin" name="endYear" [(ngModel)]="mission.endYear">
+      <mat-option *ngFor="let year of years" [(value)]="year">
+        {{ year }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Annuler</button>
+  <button mat-raised-button class="add-button" (click)="addMission()" color="primary">Ajouter</button>
+</div>
