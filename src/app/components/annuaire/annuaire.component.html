@@ -1,18 +1,26 @@
 <mat-nav-list>
   <h3 mat-subheader>Annuaire</h3>
-  <mat-list-item *ngFor="let user of users">
-    <div class="initial-avatar">{{ getInitiales(user) }}</div>
-    <div class="annuaire-row" (click)='goToUserProfile(user._id)'>
+  <div *ngIf="!isSearching">
+    <!-- If no results -->
+    <div class="no-result" *ngIf="users.length == 0">
+      <img src="../../../assets/images/no-results.png">
+      <p>Aucun résultat</p>
+    </div>
+
+    <!-- If results, display profiles-->
+    <mat-list-item *ngFor="let user of users">
+      <div class="initial-avatar">{{ getInitiales(user) }}</div>
+      <div class="annuaire-row" (click)='goToUserProfile(user._id)'>
         <h4 mat-line>{{ user.firstName }} {{ user.lastName }}</h4>
         <p mat-line> Promotion {{ user.promotion }} </p>
-    </div>
-  </mat-list-item>
+      </div>
+    </mat-list-item>
+
+  </div>
 </mat-nav-list>
 
-<div class="row" *ngIf="isSearching">
-  <div class="col-12 text-center">
-      <h4>Searching ... </h4>
-  </div>
+<div class="row search-loader" *ngIf="isSearching">
+    <img src="../../../assets/loaders/loading.gif">
 </div>
 
 <form class="search-form">

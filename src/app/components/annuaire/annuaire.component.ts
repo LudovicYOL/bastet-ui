@@ -34,18 +34,24 @@ export class AnnuaireComponent implements OnInit {
       map((event: any) => {
         return event.target.value;
       })
-      , filter(res => res.length > 2)
+      //, filter(res => res.length > 2)
       , debounceTime(500)
       , distinctUntilChanged()
     ).subscribe((text: string) => {
-      this.isSearching = true;
-      this.userService
-        .searchUsers(text).subscribe((res) => {
-          this.isSearching = false;
-          this.users = res;
-        }, (err) => {
-          this.isSearching = false;
-        });
+      if(text.length == 0){
+        console.log("festch all");
+        this.fetchProfiles();
+      }else{
+        console.log("search "+ text);
+        this.isSearching = true;
+        this.userService
+          .searchUsers(text).subscribe((res) => {
+            this.isSearching = false;
+            this.users = res;
+          }, (err) => {
+            this.isSearching = false;
+          });
+      }
     });
   }
 

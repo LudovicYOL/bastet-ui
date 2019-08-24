@@ -35,7 +35,7 @@
     padding-bottom: 10px;
 }
 
-::ng-deep .mat-form-field {
+::ng-deep .search-form .mat-form-field {
     .mat-input-element {
         color: white;
     }
@@ -52,4 +52,27 @@
     .mat-form-field-required-marker {
         color: white;
     }
+}
+
+.search-loader{
+    text-align: center;
+}
+
+.search-loader img{
+    width: 75px;
+}
+
+.no-result{
+    width: 100%;
+    text-align: center;
+}
+
+.no-result img{
+    width: 75%;
+}
+
+.no-result p{
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #b6bec7;
 }

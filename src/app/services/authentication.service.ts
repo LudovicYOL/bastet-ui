@@ -51,7 +51,7 @@ export class AuthenticationService {
   public logout(): void {
     this.token = '';
     window.localStorage.removeItem(TOKEN_NAME);
-    this.router.navigateByUrl('/login');
+    location.reload();
   }
 
   public getUserDetails(): Account {
