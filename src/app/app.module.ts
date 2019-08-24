@@ -24,23 +24,21 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './services/token.interceptor';
 
 // Services
-import { IssueService } from './services/issue.service';
+import { AuthenticationService } from './services/authentication.service';
+import { UserService } from './services/user.service';
 import { MissionService } from './services/mission.service';
 
 // Components
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { IssuesListComponent } from './components/issues-list/issues-list.component';
-import { IssuesCreateComponent } from './components/issues-create/issues-create.component';
-import { IssuesEditComponent } from './components/issues-edit/issues-edit.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
-import { AuthenticationService } from './services/authentication.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { AnnuaireComponent } from './components/annuaire/annuaire.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
+// Dialog
 import { EditContactDialogComponent } from './components/profile/edit-contact-dialog/edit-contact-dialog.component';
 import { EditMainDialogComponent } from './components/profile/edit-main-dialog/edit-main-dialog.component';
 import { AddMissionDialogComponent } from './components/profile/add-mission-dialog/add-mission-dialog.component';
@@ -56,15 +54,11 @@ const routes: Routes = [
       { path: 'annuaire', component: AnnuaireComponent, canActivate: [AuthGuardService] },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
       { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuardService] },
-      { path: 'issues/create', component: IssuesCreateComponent, canActivate: [AuthGuardService] },
-      { path: 'issues/edit/:id', component: IssuesEditComponent, canActivate: [AuthGuardService] },
-      { path: 'issues/list', component: IssuesListComponent, canActivate: [AuthGuardService] },
-      { path: 'issues', redirectTo: 'issues/list', pathMatch: 'full', canActivate: [AuthGuardService] },
       { path: 'settings', component: SettingsComponent, canActivate: [AuthGuardService] }
     ]
   },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent, data: {animation: 'RegisterPage'} },
+  { path: 'register', component: RegisterComponent, data: { animation: 'RegisterPage' } },
   { path: '**', component: NotFoundComponent }
 
 ];
@@ -72,9 +66,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    IssuesCreateComponent,
-    IssuesEditComponent,
-    IssuesListComponent,
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
@@ -107,7 +98,7 @@ const routes: Routes = [
     FontAwesomeModule
   ],
   providers: [
-    IssueService,
+    UserService,
     MissionService,
     AuthGuardService,
     AuthenticationService,
