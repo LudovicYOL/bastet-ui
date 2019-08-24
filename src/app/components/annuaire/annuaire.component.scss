@@ -16,3 +16,40 @@
 .annuaire-row h4, .annuaire-row p{
     margin: 5px;
 }
+
+.search-form{
+    width: 100%;
+    background: #334051;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+
+.search-form .mat-form-field{
+    width: 100%;
+}
+
+::ng-deep .search-form .mat-form-field-wrapper{
+    width: 95%;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+::ng-deep .mat-form-field {
+    .mat-input-element {
+        color: white;
+    }
+    .mat-form-field-label {
+        color: white;
+    }
+    .mat-form-field-underline {
+        background-color: white;
+        bottom: 10px;
+    }
+    .mat-form-field-ripple {
+        background-color: white;
+    }
+    .mat-form-field-required-marker {
+        color: white;
+    }
+}

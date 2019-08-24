@@ -17,6 +17,10 @@ export class UserService {
     return this.http.get(`${environment.api}/user/` + id);
   }
 
+  searchUsers(keywords) {
+    return this.http.get(`${environment.api}/user/search/` + keywords);
+  }
+
   update(user) {
     return this.http.post(`${environment.api}/user/update`, user);
   }

@@ -8,3 +8,16 @@
     </div>
   </mat-list-item>
 </mat-nav-list>
+
+<div class="row" *ngIf="isSearching">
+  <div class="col-12 text-center">
+      <h4>Searching ... </h4>
+  </div>
+</div>
+
+<form class="search-form">
+  <mat-form-field class="example-full-width">
+    <input type="text" #searchInput matInput placeholder="">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</form>
