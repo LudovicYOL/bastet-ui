@@ -37,6 +37,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AnnuaireComponent } from './components/annuaire/annuaire.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { StatisticComponent } from './components/statistic/statistic.component';
 
 // Dialog
 import { EditContactDialogComponent } from './components/profile/edit-contact-dialog/edit-contact-dialog.component';
@@ -57,7 +58,8 @@ const routes: Routes = [
       { path: 'annuaire', component: AnnuaireComponent, canActivate: [AuthGuardService] },
       { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
       { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuardService] },
-      { path: 'settings', component: SettingsComponent, canActivate: [AuthGuardService] }
+      { path: 'statistic', component: StatisticComponent, canActivate: [AuthGuardService] },
+      { path: 'settings', component: SettingsComponent, canActivate: [AuthGuardService] },
     ]
   },
   { path: 'login', component: LoginComponent },
@@ -84,6 +86,7 @@ const routes: Routes = [
     DeleteMissionDialogComponent,
     UpdateLoginComponent,
     UpdatePasswordComponent,
+    StatisticComponent,
   ],
   entryComponents: [
     EditContactDialogComponent,
