@@ -53,6 +53,8 @@ import { UpdatePasswordComponent } from './components/settings/update-password/u
 
 // Pipes
 import { NotDisclosedPipe } from './components/pipes/not-disclosed.pipe';
+import { WelcomeComponent } from './components/home/welcome/welcome.component';
+import { HistoryComponent } from './components/home/history/history.component';
 
 const routes: Routes = [
   {
@@ -90,6 +92,8 @@ const routes: Routes = [
     UpdateLoginComponent,
     UpdatePasswordComponent,
     StatisticComponent,
+    WelcomeComponent,
+    HistoryComponent,
   ],
   entryComponents: [
     EditContactDialogComponent,
