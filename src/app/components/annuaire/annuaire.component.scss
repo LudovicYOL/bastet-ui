@@ -35,6 +35,10 @@
     width: 100%;
 }
 
+::ng-deep .search-form .mat-form-field-prefix{
+    padding-right: 10px;
+}
+
 ::ng-deep .search-form .mat-form-field-wrapper{
     width: 95%;
     margin: auto;

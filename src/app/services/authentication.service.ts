@@ -96,11 +96,22 @@ export class AuthenticationService {
     return request;
   }
 
+
+  // API
+
   public register(user: TokenPayload): Observable<any> {
     return this.request('post', 'register', user);
   }
 
   public login(user: TokenPayload): Observable<any> {
     return this.request('post', 'login', user);
+  }
+
+  public updateLogin(account){
+    return this.http.post(`${environment.api}/update-login`, account);
+  }
+
+  public updatePassword(account){
+    return this.http.post(`${environment.api}/update-password`, account);
   }
 }

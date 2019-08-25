@@ -15,8 +15,8 @@ export class EditContactDialogComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
 
   getEmailErrorMessage() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
+    return this.email.hasError('required') ? 'Ce champ est requis' :
+      this.email.hasError('email') ? 'Email non valide' :
         '';
   }
 

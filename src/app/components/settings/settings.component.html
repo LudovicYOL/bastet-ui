@@ -1,3 +1,17 @@
-<p>
-  settings works!
-</p>
+
+
+<mat-nav-list class="settings-container">
+    <h3 mat-subheader>Paramètres</h3>
+    
+    <mat-list-item>
+        <h4 mat-line>Modification de l'identifiant</h4>
+        <p mat-line> {{ account.email }} </p>
+        <mat-icon class="update-login" aria-label="Modifier adresse mail de connexion" (click)='openUpdateLoginDialog()'>edit</mat-icon>
+      </mat-list-item>
+    <mat-list-item>
+      <h4 mat-line>Modification du mot de passe</h4>
+      <p mat-line> ******** </p>
+      <mat-icon class="update-password" aria-label="Modifier mot de passe" (click)='openUpdatePasswordDialog()'>edit</mat-icon>
+    </mat-list-item>
+ 
+  </mat-nav-list>

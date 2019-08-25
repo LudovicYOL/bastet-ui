@@ -44,6 +44,9 @@ import { EditMainDialogComponent } from './components/profile/edit-main-dialog/e
 import { AddMissionDialogComponent } from './components/profile/add-mission-dialog/add-mission-dialog.component';
 import { DeleteMissionDialogComponent } from './components/profile/delete-mission-dialog/delete-mission-dialog.component';
 
+import { UpdateLoginComponent } from './components/settings/update-login/update-login.component';
+import { UpdatePasswordComponent } from './components/settings/update-password/update-password.component';
+
 // Pipes
 import { NotDisclosedPipe } from './components/pipes/not-disclosed.pipe';
 
@@ -78,13 +81,17 @@ const routes: Routes = [
     EditMainDialogComponent,
     NotDisclosedPipe,
     AddMissionDialogComponent,
-    DeleteMissionDialogComponent
+    DeleteMissionDialogComponent,
+    UpdateLoginComponent,
+    UpdatePasswordComponent,
   ],
   entryComponents: [
     EditContactDialogComponent,
     EditMainDialogComponent,
     AddMissionDialogComponent,
     DeleteMissionDialogComponent,
+    UpdateLoginComponent,
+    UpdatePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,7 +102,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     MaterialModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   providers: [
     UserService,

@@ -123,8 +123,8 @@ export class ProfileComponent implements OnInit {
   }
 
   canEdit() {
-    if (this.user && this.user.email) {
-      return this.auth.getUserDetails().email === this.user.email;
+    if (this.user && this.user._id) {
+      return this.auth.getUserDetails().user === this.user._id;
     }
   }
 }

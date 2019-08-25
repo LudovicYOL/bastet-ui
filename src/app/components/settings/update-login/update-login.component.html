@@ -1,0 +1,32 @@
+
+  <div mat-dialog-title>
+    <mat-card-title>Identifiant</mat-card-title><br />
+    <mat-card-subtitle>Modification</mat-card-subtitle>
+    <p class="warning-message">Information : cette action va vous déconnecter !</p>
+  </div>
+  <div mat-dialog-content>
+    <mat-form-field class="mat-form-field-with-hint">
+      <input matInput placeholder="Nouvel E-mail" [formControl]="emailFormControl" name="email" [(ngModel)]="email"
+        required>
+      <span matPrefix>
+        <fa-icon [icon]="['fas', 'envelope']"></fa-icon>&nbsp;
+      </span>
+      <mat-hint>L'adresse mail avec laquelle vous vous connectez</mat-hint>
+      <mat-error *ngIf="emailFormControl.invalid">{{getEmailErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <br />
+    <br />
+    <mat-form-field>
+      <input matInput placeholder="Mot de passe" name="password" [(ngModel)]="password" required>
+      <span matPrefix>
+        <fa-icon [icon]="['fas', 'unlock']"></fa-icon>&nbsp;
+      </span>
+      <mat-hint>Votre mot de passe pour vérification</mat-hint>
+    </mat-form-field>
+    <br />
+    <br />
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Annuler</button>
+    <button mat-raised-button class="update-button" (click)="update()" color="primary">Modifier</button>
+  </div>
