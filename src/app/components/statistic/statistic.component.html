@@ -1,15 +1,23 @@
 <mat-nav-list>
     <h3 mat-subheader>Statistiques</h3>
 
-    <mat-card class="promotion-card">
+    <mat-card class="promotion-card" *ngIf="promotionChartReady">
         <mat-card-header>
           <mat-card-title>Promotion</mat-card-title>
-          <mat-card-subtitle>Nombres de personnes</mat-card-subtitle>
+          <mat-card-subtitle>Nombres de personnes <i>(total : {{ total }})</i></mat-card-subtitle>
         </mat-card-header>
         <div class="promotion-result">
-          <!-- <div *ngFor=''>
-
-          </div> -->
+            <div>
+                <div style="display: block">
+                  <canvas baseChart
+                          [datasets]="promotionBarChartData"
+                          [labels]="promotionBarChartLabels"
+                          [options]="promotionBarChartOptions"
+                          [legend]="promotionBarChartLegend"
+                          [chartType]="promotionBarChartType">
+                  </canvas>
+                </div>
+              </div>
         </div>
         <mat-card-content>
 

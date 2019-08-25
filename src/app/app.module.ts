@@ -8,6 +8,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Needed modules
+import { MaterialModule } from './core/material.module';
+import { ChartsModule } from 'ng2-charts';
+
 // Custom module
 // TODO : créer un module pour les icones
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -16,7 +20,6 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
-import { MaterialModule } from './core/material.module';
 
 // Authentification
 import { AuthGuardService } from './services/auth-guard.service';
@@ -106,6 +109,7 @@ const routes: Routes = [
     FormsModule,
     MaterialModule,
     FontAwesomeModule,
+    ChartsModule,
   ],
   providers: [
     UserService,

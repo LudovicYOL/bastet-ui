@@ -8,19 +8,53 @@ import { StatisticService } from 'src/app/services/statistic.service';
 })
 export class StatisticComponent implements OnInit {
 
-  promotion = [];
-
   constructor(public statisticService: StatisticService) { }
 
   ngOnInit() {
     this.initPromotionStat();
   }
 
+  // Promotion Chart
+  total = 0;
+
+  promotionBarChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            precision: 1,
+            beginAtZero: true
+          }
+        }
+      ]
+    }
+  };
+
+  promotionBarChartLabels = [];
+  promotionBarChartType = 'bar';
+  promotionColor = '#ffab40';
+  promotionHoverColor = '#323f52';
+  promotionBarChartLegend = false;
+
+  promotionBarChartData = [];
+  promotionChartReady = false;
+
   initPromotionStat(): void{
-    this.statisticService.getPromotionStat().subscribe((data)=>{
-      console.log(data);
+    this.statisticService.getPromotionStat().subscribe((promotions: Array<any>)=>{
+      let data = [];
+      for(let promotion of promotions){
+        this.promotionBarChartLabels.push(promotion._id);
+        data.push(promotion.count);
+        this.total += promotion.count;
+      }
+      this.promotionBarChartData.push({
+        'data': data, 
+        'backgroundColor': this.promotionColor, 
+        'hoverBackgroundColor': this.promotionHoverColor
+      });
+      this.promotionChartReady = true;
     });
   }
-
-
 }
