@@ -1,0 +1,35 @@
+.container{
+
+}
+
+.history-item{
+    margin: 10px 0;
+}
+
+.history-item .avatar{
+    background-color: #ffab40;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    margin: 10px 10px 10px 0px;
+}
+
+.history-item .content{
+
+}
+
+.history-item .text{
+
+}
+
+.history-item .date{
+    font-size: 12px;
+    font-style: italic;
+}
+
+.load-more-button{
+    display: block;
+    margin: 10px auto;
+}

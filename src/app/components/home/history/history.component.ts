@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HistoryService } from 'src/app/services/history.service';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  page = 1;
+  histories = [];
+
+  constructor(public historyService: HistoryService) { }
 
   ngOnInit() {
+    this.historyService.getPage(this.page).subscribe((data)=>{
+      this.histories = data.docs;
+    });
+  }
+
+  loadMore(){
+    this.page++;
+    this.historyService.getPage(this.page).subscribe((data)=>{
+      this.histories = this.histories.concat(data.docs);
+    });
+  }
+
+  getInitiales(history) {
+    return history.user.firstName.charAt(0) + history.user.lastName.charAt(0);
   }
 
 }
