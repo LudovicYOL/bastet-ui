@@ -1,3 +1,13 @@
 .container{
     padding: 20px;
 }
+
+.welcome-img{
+    width:100%;
+    max-width: 500px;
+}
+
+::ng-deep .container .mat-list .mat-list-item .mat-line{
+    word-wrap: break-word;
+   white-space: pre-wrap;
+}

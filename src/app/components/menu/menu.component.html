@@ -23,7 +23,7 @@
           </button>
         </mat-list-item>
       </mat-nav-list>
-      <mat-accordion multi="true" [displayMode]="displayMode">
+      <mat-accordion multi="true" [displayMode]="displayMode" *ngIf="isAdmin()">
         <mat-expansion-panel class="no-shadow">
           <mat-expansion-panel-header fxLayout="row" [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
             <mat-panel-title>

@@ -38,4 +38,8 @@ export class MenuComponent implements OnInit {
   logout() {
     this.auth.logout();
   }
+
+  isAdmin(): boolean {
+    return this.auth.getUserDetails().role == 'ADMIN';
+  }
 }

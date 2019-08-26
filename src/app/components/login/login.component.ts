@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     if (this.credentials.email !== '' &&
       this.credentials.password !== '') {
         this.auth.login(this.credentials).subscribe(() => {
-          this.router.navigateByUrl('/profile');
+          this.router.navigateByUrl('/home');
         }, (err) => {
           this.snackBar.open('Oups ! Vos identifiants sont incorrects !', 'FERMER', {
             duration: 3000,

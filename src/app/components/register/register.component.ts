@@ -53,7 +53,7 @@ export class RegisterComponent implements OnInit {
       this.credentials.promotion !== '') {
 
       this.auth.register(this.credentials).subscribe(() => {
-        this.router.navigateByUrl('/profile');
+        this.router.navigateByUrl('/home');
       }, (err) => {
         let message = 'Erreur lors de l\'enregistrement du compte !';
         if (err.status === 409) {
