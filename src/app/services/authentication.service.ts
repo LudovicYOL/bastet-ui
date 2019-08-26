@@ -24,7 +24,7 @@ export interface TokenPayload {
   password: string;
   firstName?: string;
   lastName?: string;
-  promotion?: string;
+  promotion?: Number;
 }
 
 export const TOKEN_NAME = 'mean-token';

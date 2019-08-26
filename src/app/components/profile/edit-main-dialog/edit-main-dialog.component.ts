@@ -57,7 +57,7 @@ export class EditMainDialogComponent implements OnInit {
     let year = 2009;
     const actualYear = new Date().getFullYear();
     while (year <= actualYear + 5) {
-      this.promotions.push('' + year);
+      this.promotions.push(year);
       year++;
     }
   }

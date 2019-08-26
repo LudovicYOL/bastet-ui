@@ -1,0 +1,28 @@
+<mat-card class="promotion-card" *ngIf="promotionChartReady">
+    <mat-card-header>
+      <mat-card-title>Promotion</mat-card-title>
+      <mat-card-subtitle>Nombres de personnes</mat-card-subtitle>
+    </mat-card-header>
+
+    <p class="counter">Total : {{ total }} dont {{ totalAlumnis }} alumnis & {{ totalStudents }} étudiants</p>
+
+    <div class="promotion-result">
+        <div>
+            <div style="display: block">
+              <canvas baseChart
+                      [datasets]="promotionBarChartData"
+                      [labels]="promotionBarChartLabels"
+                      [options]="promotionBarChartOptions"
+                      [legend]="promotionBarChartLegend"
+                      [chartType]="promotionBarChartType">
+              </canvas>
+            </div>
+          </div>
+    </div>
+    <mat-card-content>
+
+    </mat-card-content>
+    <mat-card-actions>
+     
+    </mat-card-actions>
+  </mat-card>

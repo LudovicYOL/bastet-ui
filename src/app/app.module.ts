@@ -55,6 +55,8 @@ import { UpdatePasswordComponent } from './components/settings/update-password/u
 import { NotDisclosedPipe } from './components/pipes/not-disclosed.pipe';
 import { WelcomeComponent } from './components/home/welcome/welcome.component';
 import { HistoryComponent } from './components/home/history/history.component';
+import { PromotionChartComponent } from './components/statistic/promotion-chart/promotion-chart.component';
+import { CityChartComponent } from './components/statistic/city-chart/city-chart.component';
 
 const routes: Routes = [
   {
@@ -94,6 +96,8 @@ const routes: Routes = [
     StatisticComponent,
     WelcomeComponent,
     HistoryComponent,
+    PromotionChartComponent,
+    CityChartComponent,
   ],
   entryComponents: [
     EditContactDialogComponent,

@@ -1,0 +1,30 @@
+<mat-card class="city-card" *ngIf="cityChartReady">
+    <mat-card-header>
+      <mat-card-title>Ville</mat-card-title>
+      <mat-card-subtitle>Position géographique des alumnis</mat-card-subtitle>
+    </mat-card-header>
+
+    <p class="counter">Les alumnis sont dans {{ total }} villes différentes ! <br/> {{ countNull }} alumnis n'ont pas renseignés l'information</p>
+
+    <div class="city-result">
+        <div>
+            <div style="display: block">
+                <canvas baseChart
+                [data]="cityPieChartData"
+                [labels]="cityPieChartLabels"
+                [chartType]="cityPieChartType"
+                [options]="cityPieChartOptions"
+                [plugins]="cityPieChartPlugins"
+                [colors]="cityPieChartColors"
+                [legend]="cityPieChartLegend">
+              </canvas>
+            </div>
+          </div>
+    </div>
+    <mat-card-content>
+
+    </mat-card-content>
+    <mat-card-actions>
+     
+    </mat-card-actions>
+  </mat-card>

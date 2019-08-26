@@ -13,4 +13,8 @@ export class StatisticService {
   getPromotionStat() {
     return this.http.get(`${environment.api}/stat/promotion`);
   }
+
+  getCityStat() {
+    return this.http.get(`${environment.api}/stat/city`);
+  }
 }

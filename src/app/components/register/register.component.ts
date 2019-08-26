@@ -18,8 +18,7 @@ export class RegisterComponent implements OnInit {
     email: '',
     firstName: '',
     lastName: '',
-    password: '',
-    promotion: ''
+    password: ''
   };
 
   promotions = [];
@@ -50,7 +49,7 @@ export class RegisterComponent implements OnInit {
       this.credentials.password !== '' &&
       this.credentials.firstName !== '' &&
       this.credentials.lastName !== '' &&
-      this.credentials.promotion !== '') {
+      this.credentials.promotion) {
 
       this.auth.register(this.credentials).subscribe(() => {
         this.router.navigateByUrl('/home');
