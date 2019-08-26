@@ -14,4 +14,7 @@ export class HistoryService {
     return this.http.get(`${environment.api}/history/` + page);
   }
 
+  deleteHistory(id): any {
+    return this.http.delete(`${environment.api}/history/` + id);
+  }
 }

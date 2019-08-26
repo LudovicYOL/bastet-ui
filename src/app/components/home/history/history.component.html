@@ -7,6 +7,7 @@
       <span class="date">{{ history.date | date: '\'Le\' dd/MM/yyyy \'à\' HH:mm' }}</span><br/>
       <span class="text">{{ history.text }}</span>
     </div>
+    <mat-icon *ngIf="canDelete()" class="history-delete" aria-label="Supprimer l'historique" (click)='deleteHistory(history)'>delete</mat-icon>
     </mat-list-item>
     <mat-divider></mat-divider>
   </div>
