@@ -1,65 +1,67 @@
-.register-container{
-  padding:0;
-  width:100%;
-  height:100%;
-  background:#6ba880;
+.register-container {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #6ba880;
 }
 
 .register-card {
- max-width: 400px;
- margin: 0 auto;
- background:none;
- box-shadow: none;
+  max-width: 400px;
+  margin: 0 auto;
+  background: none;
+  box-shadow: none;
+  z-index: 2;
+  background: #6ba880;
 }
 
-.register-card img{
- width:150px;    
- display: inherit;
- margin:auto;
- padding:20px;
+.register-card img {
+  width: 150px;
+  display: inherit;
+  margin: auto;
+  padding: 20px;
 }
 
 .mat-form-field {
- width: 100%;
+  width: 100%;
 }
 
 .mat-card-actions {
- margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-.mat-card-title{
- color:white;
- text-transform: uppercase;
+.mat-card-title {
+  color: white;
+  text-transform: uppercase;
 }
 
-.mat-card{
- color:white;
- font-weight:100;
+.mat-card {
+  color: white;
+  font-weight: 100;
 }
 
-.register-container .mat-card-content{
- padding: 15px;
+.register-container .mat-card-content {
+  padding: 15px;
 }
 
-::ng-deep .register-container .mat-form-field-label, 
-.register-container .mat-form-field-underline, 
+::ng-deep .register-container .mat-form-field-label,
+.register-container .mat-form-field-underline,
 .login-container .mat-form-field,
-::ng-deep .mat-select-value, 
-::ng-deep .mat-select-arrow{
- color:white;
+::ng-deep .mat-select-value,
+::ng-deep .mat-select-arrow {
+  color: white;
 }
 
-::ng-deep .register-container .mat-form-field-underline{
- background-color:white;
+::ng-deep .register-container .mat-form-field-underline {
+  background-color: white;
 }
 
-.register-button{
- text-transform: uppercase;
- border: 1px solid white;
- padding: 0px 20px;
+.register-button {
+  text-transform: uppercase;
+  border: 1px solid white;
+  padding: 0px 20px;
 }
 
-.back-button button{
-  color:white;
-  margin:20px;
+.back-button button {
+  color: white;
+  margin: 20px;
 }
