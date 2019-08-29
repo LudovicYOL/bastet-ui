@@ -9,7 +9,7 @@ import { EditMainDialogComponent } from './edit-main-dialog/edit-main-dialog.com
 import { AddMissionDialogComponent } from './add-mission-dialog/add-mission-dialog.component';
 import { ActivatedRoute } from '@angular/router';
 import { MissionService } from 'src/app/services/mission.service';
-import { Mission } from 'src/app/models/Mission.model';
+import { Mission } from 'src/app/models/mission.model';
 import { DeleteMissionDialogComponent } from './delete-mission-dialog/delete-mission-dialog.component';
 
 @Component({

@@ -2,7 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MatSnackBar, MAT_DIALOG_DATA } from '@angular/material';
 import { MissionService } from 'src/app/services/mission.service';
 import { User } from 'src/app/models/user.model';
-import { Mission } from 'src/app/models/Mission.model';
+import { Mission } from 'src/app/models/mission.model';
+
 @Component({
   selector: 'app-add-mission-dialog',
   templateUrl: './add-mission-dialog.component.html',

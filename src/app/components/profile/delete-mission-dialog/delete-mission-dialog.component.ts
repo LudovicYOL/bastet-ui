@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { Mission } from 'src/app/models/Mission.model';
+import { Mission } from 'src/app/models/mission.model';
 import { MissionService } from 'src/app/services/mission.service';
 
 @Component({
