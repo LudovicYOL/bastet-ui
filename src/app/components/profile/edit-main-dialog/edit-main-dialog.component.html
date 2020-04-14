@@ -18,9 +18,9 @@
       </span>
     </mat-form-field>
     <br />
-    <mat-form-field>
+    <mat-form-field *ngIf="promotions">
       <mat-select placeholder="Promotion" required name="promotion" [(ngModel)]="user.promotion">
-        <mat-option *ngFor="let promotion of promotions" [(value)]="promotion">
+        <mat-option *ngFor="let promotion of promotions" [value]="promotion">
           {{ promotion }}
         </mat-option>
       </mat-select>

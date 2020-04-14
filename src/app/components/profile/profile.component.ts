@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { User } from '../../models/user.model';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { EditContactDialogComponent } from './edit-contact-dialog/edit-contact-dialog.component';
 import { EditMainDialogComponent } from './edit-main-dialog/edit-main-dialog.component';
 import { AddMissionDialogComponent } from './add-mission-dialog/add-mission-dialog.component';
@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
   missions: Mission[];
   profile: any;
 
-  months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Décembre"];
+  months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Décembre'];
 
   constructor(
     private userService: UserService,
@@ -54,9 +54,9 @@ export class ProfileComponent implements OnInit {
     });
 
     // Récupération des missions
-    this.missionService.getMissionByUser(id).subscribe((data: Mission[])=> {
+    this.missionService.getMissionByUser(id).subscribe((data: Mission[]) => {
       this.missions = data;
-    },(err) => {
+    }, (err) => {
       console.log(err);
     });
   }
@@ -88,7 +88,7 @@ export class ProfileComponent implements OnInit {
   }
 
   // Ajout d'une mission
-  openAddMissionDialog(){
+  openAddMissionDialog() {
     const addMissionDialogRef = this.dialog.open(AddMissionDialogComponent, {
       id: 'add-mission-dialog',
       data: this.user,
@@ -101,7 +101,7 @@ export class ProfileComponent implements OnInit {
   }
 
   // Suppression d'une mission
-  openDeleteMissionDialog(mission){
+  openDeleteMissionDialog(mission) {
     const deleteMissionDialogRef = this.dialog.open(DeleteMissionDialogComponent, {
       id: 'delete-mission-dialog',
       data: mission,

@@ -1,3 +1,4 @@
+import { far } from '@fortawesome/free-regular-svg-icons';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -14,10 +15,8 @@ import { ChartsModule } from 'ng2-charts';
 
 // Custom module
 // TODO : créer un module pour les icones
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
+import { FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
 
@@ -135,7 +134,7 @@ const routes: Routes = [
 })
 
 export class AppModule {
-  constructor() {
-    library.add(fas, far, fab);
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas, fab);
   }
 }

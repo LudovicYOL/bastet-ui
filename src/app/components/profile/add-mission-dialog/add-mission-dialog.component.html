@@ -19,7 +19,7 @@
     <br />
   <mat-form-field>
     <mat-select placeholder="Domaine" required name="domain" [(ngModel)]="mission.domain">
-      <mat-option *ngFor="let domain of domains" [(value)]="domain">
+      <mat-option *ngFor="let domain of domains" [value]="domain">
         {{ domain }}
       </mat-option>
     </mat-select>
@@ -27,14 +27,14 @@
   <br />
   <mat-form-field>
     <mat-select placeholder="Mois de début" required name="startMonth" [(ngModel)]="mission.startMonth">
-      <mat-option *ngFor="let month of months; let i = index" [(value)]="i">
+      <mat-option *ngFor="let month of months; let i = index" [value]="i">
         {{ month }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-select placeholder="Année de début" required name="startYear" [(ngModel)]="mission.startYear">
-      <mat-option *ngFor="let year of years" [(value)]="year">
+      <mat-option *ngFor="let year of years" [value]="year">
         {{ year }}
       </mat-option>
     </mat-select>
@@ -42,14 +42,14 @@
   <br />
   <mat-form-field>
     <mat-select placeholder="Mois de fin" name="endMonth" [(ngModel)]="mission.endMonth">
-      <mat-option *ngFor="let month of months; let i = index" [(value)]="i">
+      <mat-option *ngFor="let month of months; let i = index" [value]="i">
         {{ month }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
     <mat-select placeholder="Année de fin" name="endYear" [(ngModel)]="mission.endYear">
-      <mat-option *ngFor="let year of years" [(value)]="year">
+      <mat-option *ngFor="let year of years" [value]="year">
         {{ year }}
       </mat-option>
     </mat-select>

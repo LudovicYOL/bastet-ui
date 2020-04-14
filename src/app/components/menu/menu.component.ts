@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ObservableMedia, MediaChange } from '@angular/flex-layout';
+import { MediaObserver , MediaChange } from '@angular/flex-layout';
 import { AuthenticationService, TokenPayload } from '../../services/authentication.service';
 import { Subscription } from 'rxjs';
 
@@ -19,8 +19,8 @@ export class MenuComponent implements OnInit {
 
   watcher: Subscription;
 
-  constructor(private auth: AuthenticationService, media: ObservableMedia) {
-    this.watcher = media.subscribe((change: MediaChange) => {
+  constructor(private auth: AuthenticationService, media: MediaObserver ) {
+    this.watcher = media.media$.subscribe((change: MediaChange) => {
       if (change.mqAlias === 'sm' || change.mqAlias === 'xs') {
         this.opened = false;
         this.over = 'over';
@@ -40,6 +40,6 @@ export class MenuComponent implements OnInit {
   }
 
   isAdmin(): boolean {
-    return this.auth.getUserDetails().role == 'ADMIN';
+    return this.auth.getUserDetails().role === 'ADMIN';
   }
 }

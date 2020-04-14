@@ -19,7 +19,7 @@
         <mat-form-field color="accent">
           <input matInput placeholder="Nom" required name="lastName" [(ngModel)]="credentials.lastName">
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field *ngIf="promotions">
           <mat-select placeholder="Promotion" required name="promotion" [(ngModel)]="credentials.promotion">
             <mat-option *ngFor="let promotion of promotions" [value]="promotion">
               {{promotion}}

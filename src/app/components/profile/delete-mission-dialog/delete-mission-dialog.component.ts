@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Mission } from 'src/app/models/mission.model';
 import { MissionService } from 'src/app/services/mission.service';
 
@@ -18,7 +18,7 @@ export class DeleteMissionDialogComponent implements OnInit {
 
   }
 
-  deleteMission(): void{
+  deleteMission(): void {
     this.missionService.delete(this.mission._id).subscribe((data) => {
       this.dialogRef.close();
     });

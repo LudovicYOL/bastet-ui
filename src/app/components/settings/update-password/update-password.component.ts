@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef, MatSnackBar } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -9,9 +10,9 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class UpdatePasswordComponent implements OnInit {
 
-  actualPassword = "";
-  newPassword = "";
-  newPasswordBis = "";
+  actualPassword = '';
+  newPassword = '';
+  newPasswordBis = '';
 
   constructor(public dialogRef: MatDialogRef<UpdatePasswordComponent>,
     private authenticationService: AuthenticationService,
@@ -20,19 +21,19 @@ export class UpdatePasswordComponent implements OnInit {
   ngOnInit() {
   }
 
-  update(): void{
+  update(): void {
     if (this.actualPassword !== '' && this.newPassword !== '' && this.newPasswordBis !== '') {
-      if(this.newPassword != this.newPasswordBis){
+      if (this.newPassword !== this.newPasswordBis) {
         this.snackBar.open('Les mots de passe ne correspondent pas', 'FERMER', {
           duration: 3000,
         });
-      }else{
-        let account = {
+      } else {
+        const account = {
           id: this.authenticationService.getUserDetails()._id,
-          actualPassword : this.actualPassword,
-          newPassword : this.newPassword,
-        }
-        this.authenticationService.updatePassword(account).subscribe((data)=>{
+          actualPassword: this.actualPassword,
+          newPassword: this.newPassword,
+        };
+        this.authenticationService.updatePassword(account).subscribe((data) => {
           this.authenticationService.logout();
         }, (err) => {
           this.snackBar.open('Mot de passe actuel invalide', 'FERMER', {

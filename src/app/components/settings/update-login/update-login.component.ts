@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar, MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UpdatePasswordComponent } from '../update-password/update-password.component';
 import { FormControl, Validators } from '@angular/forms';
@@ -12,9 +13,9 @@ import { FormControl, Validators } from '@angular/forms';
 export class UpdateLoginComponent implements OnInit {
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  email = "";
-  password = "";
-  
+  email = '';
+  password = '';
+
 
   constructor(public dialogRef: MatDialogRef<UpdateLoginComponent>,
     private authenticationService: AuthenticationService,
@@ -23,14 +24,14 @@ export class UpdateLoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  update(): void{
+  update(): void {
     if (this.email !== '' && this.password !== '' && this.emailFormControl.valid) {
-      let account = {
+      const account = {
         id: this.authenticationService.getUserDetails()._id,
-        email : this.email,
-        password : this.password,
-      }
-      this.authenticationService.updateLogin(account).subscribe((data)=>{
+        email: this.email,
+        password: this.password,
+      };
+      this.authenticationService.updateLogin(account).subscribe((data) => {
         this.authenticationService.logout();
       }, (err) => {
         this.snackBar.open('Mot de passe invalide', 'FERMER', {
